@@ -13,8 +13,10 @@ public class CharacterStats : MonoBehaviour
 
     [HideInInspector]
     public bool isCritical;
-    float invincibleTimer;
-    bool isInvincible;
+    [HideInInspector]
+    public float invincibleTimer;
+
+    public bool isInvincible;
 
     public UnityEvent<Transform> OnTakeDamage;
     public UnityEvent OnDie;
@@ -121,7 +123,6 @@ public class CharacterStats : MonoBehaviour
             CurrentHealth = 0;
             OnDie?.Invoke();
         }
-        Debug.Log(CurrentHealth);
     }
 
     private void TriggerInvincible()

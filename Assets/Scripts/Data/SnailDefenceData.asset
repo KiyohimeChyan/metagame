@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b12463efd2170094d80d0fc4973055bf, type: 3}
-  m_Name: PlayerDefenceData
+  m_Name: SnailDefenceData
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  currentHealth: 10
+  maxHealth: 4
+  currentHealth: 4
   baseDeffence: 0
   currentDeffence: 0
-  invincibleTime: 1.5
+  invincibleTime: 0.1
   point: 0
   currentLevel: 0
   maxLevel: 0

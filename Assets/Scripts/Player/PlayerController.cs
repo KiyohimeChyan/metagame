@@ -35,9 +35,9 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb=GetComponent<Rigidbody2D>();
-        coll = GetComponent<CapsuleCollider2D>();
         anim = GetComponent<Animator>();
         pc = GetComponent<PhysicsCheck>();
+        coll = GetComponent<CapsuleCollider2D>();
         characterStats = GetComponent<CharacterStats>();
 
         originOffset = coll.offset;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D),typeof(Animator),typeof(PhysicsCheck))]
 public class EnemyController : MonoBehaviour
 {
     Rigidbody2D rb;
@@ -44,6 +45,7 @@ public class EnemyController : MonoBehaviour
     private BaseState currentState;
     protected BaseState patrolState;
     protected BaseState chaseState;
+    protected BaseState skillState;
 
     protected virtual void Awake()
     {
@@ -81,7 +83,8 @@ public class EnemyController : MonoBehaviour
 
     public virtual void EnemyMove()
     {
-        rb.velocity = new Vector2(faceDir.x * currentSpeed * Time.fixedDeltaTime, rb.velocity.y);
+        if(!anim.GetCurrentAnimatorStateInfo(0).IsName("Snail_PreMove")&&!anim.GetCurrentAnimatorStateInfo(0).IsName("Snail_Recover"))
+            rb.velocity = new Vector2(faceDir.x * currentSpeed * Time.fixedDeltaTime, rb.velocity.y);
     }
 
     private void PatrolWait()
@@ -117,6 +120,7 @@ public class EnemyController : MonoBehaviour
         {
             NPCState.Patrol => patrolState,
             NPCState.Chase => chaseState,
+            NPCState.Skill => skillState,
             _ => null
         };
         currentState.OnExit();

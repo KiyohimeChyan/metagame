@@ -120,7 +120,7 @@ public class AttackStats : MonoBehaviour
     {
         if (!collision.CompareTag("Weapon"))
         {
-            //Debug.Log(this.name+"นฅป๗มห"+collision.name);
+            Debug.Log(this.name+"นฅป๗มห"+collision.name);
             collision.GetComponent<CharacterStats>().TakeDamage(this);
         }
     }
