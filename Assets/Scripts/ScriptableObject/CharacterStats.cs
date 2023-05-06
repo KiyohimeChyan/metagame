@@ -18,6 +18,7 @@ public class CharacterStats : MonoBehaviour
 
     public bool isInvincible;
 
+    public UnityEvent<CharacterStats> OnHealthChange;
     public UnityEvent<Transform> OnTakeDamage;
     public UnityEvent OnDie;
 
@@ -97,6 +98,12 @@ public class CharacterStats : MonoBehaviour
         {
             characterData = Instantiate(templateData);
         }
+
+    }
+    private void Start()
+    {
+        OnHealthChange?.Invoke(this);
+
     }
     private void Update()
     {
@@ -123,6 +130,7 @@ public class CharacterStats : MonoBehaviour
             CurrentHealth = 0;
             OnDie?.Invoke();
         }
+        OnHealthChange?.Invoke(this);
     }
 
     private void TriggerInvincible()

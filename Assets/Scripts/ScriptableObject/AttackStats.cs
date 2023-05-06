@@ -120,7 +120,7 @@ public class AttackStats : MonoBehaviour
     {
         if (!collision.CompareTag("Weapon"))
         {
-            Debug.Log(this.name+"¹¥»÷ÁË"+collision.name);
+            //Debug.Log(this.name+"¹¥»÷ÁË"+collision.name);
             collision.GetComponent<CharacterStats>().TakeDamage(this);
         }
     }
@@ -132,7 +132,7 @@ public class AttackStats : MonoBehaviour
         if (isCritical)
         {
             coreDamage *= attackData.criticalDamage;
-            Debug.Log("±©»÷£º" + coreDamage);
+            //Debug.Log("±©»÷£º" + coreDamage);
         }
 
         return (int)coreDamage;

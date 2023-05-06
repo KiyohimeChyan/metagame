@@ -5,7 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D),typeof(Animator),typeof(PhysicsCheck))]
 public class EnemyController : MonoBehaviour
 {
-    Rigidbody2D rb;
+    [HideInInspector]
+    public Rigidbody2D rb;
     [HideInInspector]
     public Animator anim;
     [HideInInspector]
@@ -36,11 +37,13 @@ public class EnemyController : MonoBehaviour
     public LayerMask attackLayer;
 
     //受伤
-    Transform attacker;
-    bool isHurt;
+    [HideInInspector]
+    public Transform attacker;
+    [HideInInspector]
+    public bool isHurt;
     public float hurtForce;
-
-    bool isDead;
+    [HideInInspector]
+    public bool isDead;
 
     private BaseState currentState;
     protected BaseState patrolState;
@@ -71,9 +74,10 @@ public class EnemyController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        currentState.PhysicsUpdate();
         if (!isHurt&&!isDead&&!isWait)
             EnemyMove();
-        currentState.PhysicsUpdate();
+        
     }
 
     private void OnDisable()
@@ -103,13 +107,13 @@ public class EnemyController : MonoBehaviour
         {
             lostTime -= Time.deltaTime;
         }
-        else if (FoundPlayer())    // 添加这个额外的判断，在发现玩家的时候重置丢失时间
+        else if (FoundPlayer())    
         {
             lostTime = lostTimer;
         }
     }
 
-    public bool FoundPlayer()
+    public virtual bool FoundPlayer()
     {
         return Physics2D.BoxCast(transform.position + (Vector3)centerOffset, checkSize, 0, faceDir, checkDistance, attackLayer);
     }
@@ -126,6 +130,11 @@ public class EnemyController : MonoBehaviour
         currentState.OnExit();
         currentState = newState;
         currentState.OnEnter(this);
+    }
+
+    public virtual Vector3 GetNewPoint()
+    {
+        return transform.position;
     }
 
     public void OnEnemyTakeDamage(Transform attackerTrans)
