@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,9 +13,15 @@ public class PlayerController : MonoBehaviour
     //ÒÆ¶¯Ïà¹Ø
     public float moveSpeed;
     public float jumpForce;
+    public float slideSpeed;
+    public int slidePowerCost;
+    public Vector2 wallJumpForce;
+    public float slideDistance;
     private Rigidbody2D rb;
     private PhysicsCheck pc;
     bool isCrouch;
+    bool isWallJump;
+    bool isSlide;
     private CapsuleCollider2D coll;
     Vector2 originOffset;
     Vector3 originSize;
@@ -27,6 +34,7 @@ public class PlayerController : MonoBehaviour
     public float hurtForce;
     bool isHurt;
     bool isDead;
+    bool isStuck;
     public bool isAttack;
 
     //¶¯»­Ïà¹Ø
@@ -48,7 +56,10 @@ public class PlayerController : MonoBehaviour
         inputControll.Gameplay.Jump.started += Jump;
         //¹¥»÷
         inputControll.Gameplay.Attack.started += PlayerAttack;
+        //»¬²ù
+        inputControll.Gameplay.Slide.started += PlayerSlide;
     }
+
 
     private void OnEnable()
     {
@@ -64,6 +75,7 @@ public class PlayerController : MonoBehaviour
     {
         CheckState();
         AnimControll();
+        isStuck = pc.touchTopWall && !isSlide;
         inputDirection = inputControll.Gameplay.Move.ReadValue<Vector2>();
     }
 
@@ -76,7 +88,7 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        if (!isCrouch)
+        if (!isCrouch&&!isWallJump && !isStuck)
             rb.velocity = new Vector2(inputDirection.x * moveSpeed * Time.fixedDeltaTime, rb.velocity.y);
         int faceDir = (int)transform.localScale.x;
         if (inputDirection.x > 0)
@@ -96,6 +108,18 @@ public class PlayerController : MonoBehaviour
             coll.offset = originOffset;
             coll.size = originSize;
         }
+
+        if (isSlide)
+        {
+            coll.offset = new Vector2(-0.06f, 0.4f);
+            coll.size = new Vector2(0.7f, 0.8f);
+        }
+        else
+        {
+            coll.offset = originOffset;
+            coll.size = originSize;
+        }
+
     }
 
     private void Jump(InputAction.CallbackContext obj)
@@ -103,9 +127,45 @@ public class PlayerController : MonoBehaviour
         if (pc.isGround)
         {
             rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+            //StopAllCoroutines();  //ÌøÔ¾´ò¶Ï»¬²ù
+            //isSlide = false;
 
+        }else if (pc.isWall)
+        {
+            rb.AddForce(new Vector2(-transform.localScale.x, wallJumpForce.y) * wallJumpForce.x, ForceMode2D.Impulse);
+            isWallJump = true;
         }
     }
+
+    private void PlayerSlide(InputAction.CallbackContext obj)
+    {
+        if (!isSlide&&pc.isGround&&characterStats.CurrentPower>=slidePowerCost)
+        {
+            isSlide = true;
+            var targetPos = new Vector3(transform.position.x + slideDistance * transform.localScale.x, transform.position.y);
+
+            StartCoroutine(TriggerSlide(targetPos));
+
+            characterStats.OnSlide(slidePowerCost);
+        }
+    }
+
+    IEnumerator TriggerSlide(Vector3 target)
+    {
+        do
+        {
+            yield return null;
+
+            if ((pc.touchLeftWall&&transform.localScale.x<0) || (pc.touchRightWall && transform.localScale.x > 0) || !pc.isGround)
+            {
+                break;
+            }
+            rb.MovePosition(new Vector2(transform.position.x + transform.localScale.x * slideSpeed, transform.position.y));
+
+        } while (Mathf.Abs(transform.position.x - target.x) > 0.1f);
+        isSlide = false;
+    }
+
 
     private void PlayerAttack(InputAction.CallbackContext obj)
     {
@@ -121,6 +181,9 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("isCrouch", isCrouch);
         anim.SetBool("isDead", isDead);
         anim.SetBool("isAttack", isAttack);
+        anim.SetBool("isWall", pc.isWall);
+        anim.SetBool("isSlide", isSlide);
+        anim.SetBool("isStuck", isStuck);
     }
     public void PlayHurt()
     {
@@ -156,12 +219,25 @@ public class PlayerController : MonoBehaviour
     }
     private void CheckState()
     {
-        if (isDead)
+        if (isDead||isSlide)
             gameObject.layer = LayerMask.NameToLayer("Enemy");
         else
             gameObject.layer = LayerMask.NameToLayer("Player");
 
         coll.sharedMaterial = pc.isGround ? normal : wall;
+        if (pc.isWall)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y / 2f);
+        }
+        else
+        {
+            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y);
+        }
+        if (isWallJump && rb.velocity.y < 0)
+        {
+            isWallJump = false;
+        }
+
     }
     #endregion
 

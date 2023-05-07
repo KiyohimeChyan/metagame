@@ -16,37 +16,42 @@ public class CharaterData_SO : ScriptableObject
     [Header("怪物经验")]
     public int point;
 
-    [Header("玩家升级相关")]
-    public int currentLevel;
-    public int maxLevel;
-    public int baseEXP;
-    public int currentEXP;
-    public float levelBuff;
-    public float baseEXPBuff;
+    [Header("技能消耗")]
+    public float currentPower;
+    public float maxPower;
+    public float powerRecoverSpeed;
 
-    public float LevelMultiplier
-    {
-        get { return 1 + (currentLevel - 1) * levelBuff; }
-    }
+    //[Header("玩家升级相关")]
+    //public int currentLevel;
+    //public int maxLevel;
+    //public int baseEXP;
+    //public int currentEXP;
+    //public float levelBuff;
+    //public float baseEXPBuff;
 
-    public void UpdateEXP(int point)
-    {
-        currentEXP += point;
-        if (currentEXP >= baseEXP)
-        {
-            levelUp();
-        }
-    }
+    //public float LevelMultiplier
+    //{
+    //    get { return 1 + (currentLevel - 1) * levelBuff; }
+    //}
 
-    //=============================================================升级相关============================================================
-    private void levelUp()
-    {
-        currentLevel = Mathf.Clamp(currentLevel + 1, 0, maxLevel);
-        baseEXP = (int)(baseEXP + (currentLevel - 1) * baseEXPBuff);
-        maxHealth = maxHealth + 10;
-        //升完级要不要回血
-        currentHealth = maxHealth;
-        currentEXP = 0;
-    }
+    //public void UpdateEXP(int point)
+    //{
+    //    currentEXP += point;
+    //    if (currentEXP >= baseEXP)
+    //    {
+    //        levelUp();
+    //    }
+    //}
+
+    ////=============================================================升级相关============================================================
+    //private void levelUp()
+    //{
+    //    currentLevel = Mathf.Clamp(currentLevel + 1, 0, maxLevel);
+    //    baseEXP = (int)(baseEXP + (currentLevel - 1) * baseEXPBuff);
+    //    maxHealth = maxHealth + 10;
+    //    //升完级要不要回血
+    //    currentHealth = maxHealth;
+    //    currentEXP = 0;
+    //}
 
 }

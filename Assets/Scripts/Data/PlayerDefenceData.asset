@@ -18,9 +18,6 @@ MonoBehaviour:
   currentDeffence: 0
   invincibleTime: 1.5
   point: 0
-  currentLevel: 0
-  maxLevel: 0
-  baseEXP: 0
-  currentEXP: 0
-  levelBuff: 0
-  baseEXPBuff: 0
+  currentPower: 10
+  maxPower: 10
+  powerRecoverSpeed: 1.2

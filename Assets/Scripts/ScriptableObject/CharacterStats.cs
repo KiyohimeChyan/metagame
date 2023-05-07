@@ -92,6 +92,49 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
+    public float CurrentPower
+    {
+        get
+        {
+            if (characterData != null)
+                return characterData.currentPower;
+            else return 0;
+        }
+        set
+        {
+            characterData.currentPower = value;
+        }
+    }
+
+    public float MaxPower
+    {
+        get
+        {
+            if (characterData != null)
+                return characterData.maxPower;
+            else return 0;
+        }
+        set
+        {
+            characterData.maxPower = value;
+        }
+    }
+
+    public float PowerRecoverSpeed
+    {
+        get
+        {
+            if (characterData != null)
+                return characterData.powerRecoverSpeed;
+            else return 0;
+        }
+        set
+        {
+            characterData.powerRecoverSpeed = value;
+        }
+    }
+
+
     private void Awake()
     {
         if (templateData != null)
@@ -111,6 +154,10 @@ public class CharacterStats : MonoBehaviour
         if (invincibleTimer <= 0)
         {
             isInvincible = false;
+        }
+        if (CurrentPower < MaxPower)
+        {
+            CurrentPower += Time.deltaTime * PowerRecoverSpeed;
         }
     }
 
@@ -140,6 +187,12 @@ public class CharacterStats : MonoBehaviour
             isInvincible = true;
             invincibleTimer = InvincibleTime;
         }
+    }
+
+    public void OnSlide(int cost)
+    {
+        CurrentPower -= cost;
+        OnHealthChange?.Invoke(this);
     }
 
     //public void TakeDamageA(CharacterStats attacker, CharacterStats defender)

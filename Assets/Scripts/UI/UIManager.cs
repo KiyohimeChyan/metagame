@@ -23,6 +23,7 @@ public class UIManager : MonoBehaviour
     {
         float persentage = (float)cs.CurrentHealth / cs.MaxHealth;
         playerStatUI.OnHealthChange(persentage);
+        playerStatUI.OnPowerChange(cs);
     }
 
 }
