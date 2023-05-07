@@ -161,6 +161,17 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Water"))
+        {
+            CurrentHealth = 0;
+            OnDie?.Invoke();
+            OnHealthChange?.Invoke(this);
+
+        }
+    }
+
     public void TakeDamage(AttackStats attacker)
     {
         if (isInvincible)

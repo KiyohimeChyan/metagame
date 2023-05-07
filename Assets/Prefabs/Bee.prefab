@@ -38,7 +38,7 @@ Transform:
   m_Children:
   - {fileID: 7900906155631393323}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4481420080706449283
 SpriteRenderer:
@@ -155,13 +155,17 @@ MonoBehaviour:
   bottomOffset: {x: 0, y: 0}
   leftOffset: {x: 0, y: 0}
   rightOffset: {x: 0, y: 0}
+  topOffset: {x: 0, y: 0}
   isGround: 0
+  isPlayer: 0
   checkRadius: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
   touchLeftWall: 0
   touchRightWall: 0
+  touchTopWall: 0
+  isWall: 0
 --- !u!114 &3771326796917610846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,6 +277,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
         m_MethodName: OnEnemyTakeDamage
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 34fcef01e3cb97643af1f1ddb5846b84, type: 2}
+        m_TargetAssemblyTypeName: VoidEventSO, Assembly-CSharp
+        m_MethodName: RaisedEvent
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

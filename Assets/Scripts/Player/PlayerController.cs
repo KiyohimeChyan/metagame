@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     bool isDead;
     bool isStuck;
     public bool isAttack;
+    public bool isReading;
 
     //∂Øª≠œ‡πÿ
     private Animator anim;
@@ -73,15 +74,18 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        CheckState();
-        AnimControll();
-        isStuck = pc.touchTopWall && !isSlide;
-        inputDirection = inputControll.Gameplay.Move.ReadValue<Vector2>();
+        if (!isReading)
+        {
+            CheckState();
+            AnimControll();
+            isStuck = pc.touchTopWall && !isSlide && pc.isGround;
+            inputDirection = inputControll.Gameplay.Move.ReadValue<Vector2>();
+        }
     }
 
     private void FixedUpdate()
     {
-        if(!isHurt&&!isAttack)
+        if(!isHurt&&!isAttack&&!isReading)
             Move();
 
     }
@@ -124,22 +128,26 @@ public class PlayerController : MonoBehaviour
 
     private void Jump(InputAction.CallbackContext obj)
     {
-        if (pc.isGround)
+        if (!isReading)
         {
-            rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
-            //StopAllCoroutines();  //Ã¯‘æ¥Ú∂œª¨≤˘
-            //isSlide = false;
+            if (pc.isGround)
+            {
+                rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+                //StopAllCoroutines();  //Ã¯‘æ¥Ú∂œª¨≤˘
+                //isSlide = false;
 
-        }else if (pc.isWall)
-        {
-            rb.AddForce(new Vector2(-transform.localScale.x, wallJumpForce.y) * wallJumpForce.x, ForceMode2D.Impulse);
-            isWallJump = true;
+            }
+            else if (pc.isWall)
+            {
+                rb.AddForce(new Vector2(-transform.localScale.x, wallJumpForce.y) * wallJumpForce.x, ForceMode2D.Impulse);
+                isWallJump = true;
+            }
         }
     }
 
     private void PlayerSlide(InputAction.CallbackContext obj)
     {
-        if (!isSlide&&pc.isGround&&characterStats.CurrentPower>=slidePowerCost)
+        if (!isSlide&&pc.isGround&&characterStats.CurrentPower>=slidePowerCost&&!isReading)
         {
             isSlide = true;
             var targetPos = new Vector3(transform.position.x + slideDistance * transform.localScale.x, transform.position.y);
@@ -169,8 +177,11 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerAttack(InputAction.CallbackContext obj)
     {
-        PlayAttack();
-        isAttack = true;
+        if (!pc.isWall)
+        {
+            PlayAttack();
+            isAttack = true;
+        }
     }
 
     private void AnimControll()

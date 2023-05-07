@@ -38,7 +38,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5437224991640871191
 SpriteRenderer:
@@ -155,13 +155,17 @@ MonoBehaviour:
   bottomOffset: {x: -1, y: 0}
   leftOffset: {x: -0.88, y: 0.6}
   rightOffset: {x: 0.9, y: 0.6}
+  topOffset: {x: 0, y: 0}
   isGround: 0
+  isPlayer: 0
   checkRadius: 0.1
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   touchLeftWall: 0
   touchRightWall: 0
+  touchTopWall: 0
+  isWall: 0
 --- !u!114 &8783525304870241015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,6 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3725df425121924e818c27353e42580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   anim: {fileID: 0}
   physicsCheck: {fileID: 0}
   normalSpeed: 80
@@ -190,7 +195,10 @@ MonoBehaviour:
   attackLayer:
     serializedVersion: 2
     m_Bits: 128
+  attacker: {fileID: 0}
+  isHurt: 0
   hurtForce: 2
+  isDead: 0
 --- !u!114 &4963467988571878666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,6 +216,9 @@ MonoBehaviour:
   isCritical: 0
   invincibleTimer: 0
   isInvincible: 0
+  OnHealthChange:
+    m_PersistentCalls:
+      m_Calls: []
   OnTakeDamage:
     m_PersistentCalls:
       m_Calls:
@@ -215,6 +226,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
         m_MethodName: OnEnemyTakeDamage
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 34fcef01e3cb97643af1f1ddb5846b84, type: 2}
+        m_TargetAssemblyTypeName: VoidEventSO, Assembly-CSharp
+        m_MethodName: RaisedEvent
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
