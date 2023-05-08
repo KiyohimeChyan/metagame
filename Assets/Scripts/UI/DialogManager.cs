@@ -6,9 +6,13 @@ using UnityEngine.UI;
 using System.Text.RegularExpressions;
 using UnityEngine.InputSystem;
 using System;
+using UnityEngine.SceneManagement;
 
 public class DialogManager : MonoBehaviour
 {
+    public bool isFeedback;
+    public string nextSceneName;
+
     public PlayerInputControlls inputs;
 
 
@@ -22,6 +26,10 @@ public class DialogManager : MonoBehaviour
 
     //对话索引
     public int dialogIndex;
+
+    //对话图片
+    public List<Sprite> sprites = new List<Sprite>();
+    public Image speakingProfile;
 
     public Button nextButton;
     public bool isOption;
@@ -65,6 +73,11 @@ public class DialogManager : MonoBehaviour
         dialogText.text = Regex.Replace(_text, at, comma);
     }
 
+    public void UpdateImage(int num)
+    {
+        speakingProfile.sprite = sprites[num];
+    }
+
     public void ReadText(TextAsset _textAsset)
     {
         dialogRows = _textAsset.text.Split('\n');
@@ -83,6 +96,7 @@ public class DialogManager : MonoBehaviour
             if (cells[0] == "#" && int.Parse(cells[1]) == dialogIndex)
             {
                 UpdateText(cells[2]);
+                UpdateImage(int.Parse(cells[5]));
                 dialogIndex = int.Parse(cells[3]);
                 nextButton.gameObject.SetActive(true);
                 isOption = false;
@@ -96,7 +110,11 @@ public class DialogManager : MonoBehaviour
             }
             else if (cells[0] == "END" && int.Parse(cells[1]) == dialogIndex)
             {
-                Debug.Log("完事了");
+                if (isFeedback)
+                {
+                    //==============================================暂时使用异步加载===============================================================
+                    SceneManager.LoadScene(nextSceneName);
+                }
             }
         }
     }

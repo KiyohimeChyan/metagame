@@ -1,8 +1,8 @@
-Tag,ID,Content,Jump,Effect
-#,0,This is a title test aaaaaadjkfhuaksd@abc@qwer,1,
-&,1,Option1,3,DistanceM@1
-&,2,Option2,3,DistanceP@1
-#,3,This is a title test SWSSSRWEQW,4,
-&,4,Option3,6,DistanceM@1
-&,5,Option4,6,DistanceP@1
-END,6,,,
+Tag,ID,Content,Jump,Effect,Image
+#,0,This is a title test aaaaaadjkfhuaksd@abc@qwer,1,,0
+&,1,Option1,3,DistanceM@1,
+&,2,Option2,3,DistanceP@1,
+#,3,This is a title test SWSSSRWEQW,4,,1
+&,4,Option3,6,DistanceM@1,
+&,5,Option4,6,DistanceP@1,
+END,6,,,,

@@ -21,7 +21,7 @@ public class InteractSign : MonoBehaviour
     }
     private void OnEnable()
     {
-        InputSystem.onActionChange += OnActionChange;
+        //InputSystem.onActionChange += OnActionChange;
         inputs.Gameplay.Confirm.started += OnConfirm;
     }
 
@@ -63,6 +63,10 @@ public class InteractSign : MonoBehaviour
         {
             canPress = true;
             interactTarget = collision.GetComponent<IInteractable>();
+        }
+        else if(collision.CompareTag("Untagged"))
+        {
+            canPress = false;
         }
     }
 
