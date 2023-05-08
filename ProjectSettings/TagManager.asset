@@ -8,6 +8,7 @@ TagManager:
   - Boundary
   - Water
   - Interactable
+  - Enemy
   layers:
   - Default
   - TransparentFX
