@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AsyncScene.unity
     guid: 467525e9c575bb04b85fab6200a5c559
+  - enabled: 1
+    path: Assets/Scenes/Start.unity
+    guid: 61bb4ae4bf597fc4c8c3e6d9d65a0ab1
+  - enabled: 1
+    path: Assets/Scenes/Prototype2.unity
+    guid: dfe307fa1f7428e448c3ccbe25ad2683
   m_configObjects: {}

@@ -10,13 +10,14 @@ using UnityEngine.SceneManagement;
 
 public class DialogManager : MonoBehaviour
 {
-    public bool isFeedback;
-    public string nextSceneName;
-
+    public GameObject getNameUI;
     public PlayerInputControlls inputs;
 
-
-    public TextAsset dialogDataFile;
+    //数据读取
+    private int currentScene;
+    public TextAsset dialogDataFile2;
+    public TextAsset dialogDataFile3;
+    public TextAsset dialogDataFile4;
 
     //对话内容文本
     public TMP_Text dialogText;
@@ -49,6 +50,7 @@ public class DialogManager : MonoBehaviour
     {
         inputs = new PlayerInputControlls();
         inputs.Enable();
+        currentScene = PlayerPrefs.GetInt("currentScene");
     }
     private void OnEnable()
     {
@@ -59,7 +61,16 @@ public class DialogManager : MonoBehaviour
     {
         at = "@";
         comma = ",";
-        ReadText(dialogDataFile);
+        if(currentScene == 2)
+        {
+            ReadText(dialogDataFile2);
+        }else if(currentScene == 3)
+        {
+            ReadText(dialogDataFile3);
+        }else if(currentScene == 4)
+        {
+            ReadText(dialogDataFile4);
+        }
         ShowDialog();
     }
 
@@ -110,10 +121,14 @@ public class DialogManager : MonoBehaviour
             }
             else if (cells[0] == "END" && int.Parse(cells[1]) == dialogIndex)
             {
-                if (isFeedback)
+                if (currentScene!=4)
                 {
                     //==============================================暂时使用异步加载===============================================================
-                    SceneManager.LoadScene(nextSceneName);
+                    SceneManager.LoadScene("AsyncScene");
+                }
+                else
+                {
+                    getNameUI.SetActive(true);
                 }
             }
         }
