@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool isLevel2;
+
     //新输入系统
     public PlayerInputControlls inputControll;
     public Vector2 inputDirection;
@@ -58,7 +60,10 @@ public class PlayerController : MonoBehaviour
         //攻击
         inputControll.Gameplay.Attack.started += PlayerAttack;
         //滑铲
-        inputControll.Gameplay.Slide.started += PlayerSlide;
+        if (!isLevel2)
+        {
+            inputControll.Gameplay.Slide.started += PlayerSlide;
+        }
     }
 
 
@@ -139,8 +144,11 @@ public class PlayerController : MonoBehaviour
             }
             else if (pc.isWall)
             {
-                rb.AddForce(new Vector2(-transform.localScale.x, wallJumpForce.y) * wallJumpForce.x, ForceMode2D.Impulse);
-                isWallJump = true;
+                if (!isLevel2)
+                {
+                    rb.AddForce(new Vector2(-transform.localScale.x, wallJumpForce.y) * wallJumpForce.x, ForceMode2D.Impulse);
+                    isWallJump = true;
+                }
             }
         }
     }
@@ -192,9 +200,12 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("isCrouch", isCrouch);
         anim.SetBool("isDead", isDead);
         anim.SetBool("isAttack", isAttack);
-        anim.SetBool("isWall", pc.isWall);
-        anim.SetBool("isSlide", isSlide);
-        anim.SetBool("isStuck", isStuck);
+        if (!isLevel2)
+        {
+            anim.SetBool("isWall", pc.isWall);
+            anim.SetBool("isSlide", isSlide);
+            anim.SetBool("isStuck", isStuck);
+        }
     }
     public void PlayHurt()
     {
@@ -238,7 +249,10 @@ public class PlayerController : MonoBehaviour
         coll.sharedMaterial = pc.isGround ? normal : wall;
         if (pc.isWall)
         {
-            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y / 2f);
+            if (!isLevel2)
+            {
+                rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y / 2f);
+            }
         }
         else
         {

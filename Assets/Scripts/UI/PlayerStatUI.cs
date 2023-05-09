@@ -8,14 +8,18 @@ public class PlayerStatUI : MonoBehaviour
     public Image healthBar;
     public Image healthDelayBar;
     public Image energyBar;
+    public bool isLevel2;
 
     bool isRecover;
     CharacterStats characterStats;
     private void Update()
     {
-        if (healthDelayBar.fillAmount > healthBar.fillAmount)
+        if (!isLevel2)
         {
-            healthDelayBar.fillAmount -= Time.deltaTime*0.75f;
+            if (healthDelayBar.fillAmount > healthBar.fillAmount)
+            {
+                healthDelayBar.fillAmount -= Time.deltaTime * 0.75f;
+            }
         }
         if (isRecover)
         {
