@@ -23,6 +23,7 @@ public class NPCInteract : MonoBehaviour,IInteractable
 
     //对话内容文本
     public TMP_Text dialogText;
+    public TMP_Text nameText;
 
     //对话文本-按行分割
     public string[] dialogRows;
@@ -68,6 +69,11 @@ public class NPCInteract : MonoBehaviour,IInteractable
         dialogText.text = Regex.Replace(_text, at, comma);
     }
 
+    public void UpdateName(string text)
+    {
+        nameText.text = text;
+    }
+
     public void UpdateImage(int num)
     {
         speakingProfile.sprite = sprites[num];
@@ -91,6 +97,7 @@ public class NPCInteract : MonoBehaviour,IInteractable
             if (cells[0] == "#" && int.Parse(cells[1]) == dialogIndex)
             {
                 UpdateText(cells[2]);
+                UpdateName(cells[6]);
                 UpdateImage(int.Parse(cells[5]));
                 dialogIndex = int.Parse(cells[3]);
                 break;

@@ -1,32 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using System.Text.RegularExpressions;
+using UnityEngine.InputSystem;
 
-public class PlayerLit : MonoBehaviour
+public class DesignerDialog : MonoBehaviour
 {
-    public PlayerInputControlls inputControll;
-    public Vector2 inputDirection;
-
-    public float moveSpeed;
-    public float jumpForce;
-
-    public int currentHP;
-    bool isDead;
-
-    private Rigidbody2D rb;
-    private PhysicsCheck pc;
-
-    [Header("UIœ‡πÿ")]
-    public TMP_Text hpText;
-    public GameObject gameOverPanel;
-    public Button selectedButton;
-
-    public GameObject NPCDialog;
+    public GameObject designerDialog;
+    public PlayerController playerController;
 
     public PlayerInputControlls inputs;
 
@@ -53,35 +36,21 @@ public class PlayerLit : MonoBehaviour
     public float pressTimer;
     float pressTime;
 
-
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        pc = GetComponent<PhysicsCheck>();
-
-        inputControll = new PlayerInputControlls();
-        //Ã¯‘æ
-        inputControll.Gameplay.Jump.started += Jump;
-        inputControll.Gameplay.Dialog.started += OnDialogChange;
+        inputs = new PlayerInputControlls();
+        inputs.Enable();
     }
     private void OnEnable()
     {
-        inputControll.Enable();
-    }
-
-    private void OnDisable()
-    {
-        inputControll.Disable();
+        inputs.Gameplay.Dialog.started += OnDialogChange;
+        playerController.isReading = true;
     }
 
     void Start()
     {
         at = "@";
         comma = ",";
-        if (PlayerPrefs.GetInt("isDialog") == 0)
-        {
-            NPCDialog.SetActive(true);
-        }
         ReadText(dialogDataFile);
         ShowDialog();
     }
@@ -89,65 +58,12 @@ public class PlayerLit : MonoBehaviour
     private void Update()
     {
         pressTime -= Time.deltaTime;
-        inputDirection = inputControll.Gameplay.Move.ReadValue<Vector2>();
-        hpText.text = "HP:" + currentHP;
-        if (currentHP <= 0)
-        {
-            isDead = true;
-            gameOverPanel.SetActive(true);
-        }
-
     }
-
-    private void FixedUpdate()
-    {
-        if(!isDead)
-            Move();
-
-    }
-
-    private void Jump(InputAction.CallbackContext obj)
-    {
-        if (pc.isGround&&!isDead)
-        {
-            rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
-
-        }
-    }
-    private void Move()
-    {
-        //int faceDir = (int)transform.localScale.x;
-        //if (inputDirection.x > 0)
-        //    faceDir = 1;
-        //if (inputDirection.x < 0)
-        //    faceDir = -1;
-        //transform.localScale = new Vector3(faceDir, 1, 1);
-        rb.velocity = new Vector2(inputDirection.x * moveSpeed * Time.fixedDeltaTime, rb.velocity.y);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            currentHP = Mathf.Max(currentHP - 1, 0);
-        }
-        else if (collision.gameObject.CompareTag("Boundary"))
-        {
-            currentHP = 0;
-        }
-        if(currentHP <= 0)
-        {
-            selectedButton.Select();
-
-        }
-    }
-
 
     public void UpdateText(string _text)
     {
         dialogText.text = Regex.Replace(_text, at, comma);
     }
-
     public void UpdateName(string text)
     {
         nameText.text = text;
@@ -183,8 +99,8 @@ public class PlayerLit : MonoBehaviour
             }
             else if (cells[0] == "END" && int.Parse(cells[1]) == dialogIndex)
             {
-                NPCDialog.SetActive(false);
-
+                designerDialog.SetActive(false);
+                playerController.isReading = false;
             }
         }
     }

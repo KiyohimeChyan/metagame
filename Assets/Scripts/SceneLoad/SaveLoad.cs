@@ -9,6 +9,7 @@ public class SaveLoad : MonoBehaviour
     public void OnFeedBackClick()
     {
         PlayerPrefs.SetInt("currentScene", currentScene);
+        PlayerPrefs.SetInt("isDialog", 0);
         PlayerPrefs.Save();
         SceneManager.LoadScene("Feedback1");
     }

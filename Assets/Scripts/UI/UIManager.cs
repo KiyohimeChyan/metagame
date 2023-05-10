@@ -8,6 +8,16 @@ public class UIManager : MonoBehaviour
     public PlayerStatUI playerStatUI;
     //ÊÂ¼þ¼àÌý
     public CharacterEventSO characterEventSO;
+    public GameObject designerDialogGroup;
+
+    private void Start()
+    {
+            if (PlayerPrefs.GetInt("isDialog") == 0)
+            {
+                designerDialogGroup.SetActive(true);
+            }
+
+    }
 
     private void OnEnable()
     {
@@ -29,6 +39,7 @@ public class UIManager : MonoBehaviour
 
     public void Restart(string sceneName)
     {
+        PlayerPrefs.SetInt("isDialog",1);
         SceneManager.LoadScene(sceneName);
     }
 
