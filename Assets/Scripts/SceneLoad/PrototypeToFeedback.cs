@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PrototypeToFeedback : MonoBehaviour
 {
-    public string nextSceneName;
+    public GameObject gameResetPanel;
+    public TMP_Text result;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-        {
-            SceneManager.LoadScene(nextSceneName);
-        }
+        gameResetPanel.SetActive(true);
+        result.text = "You win!";
     }
 }

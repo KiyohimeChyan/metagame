@@ -56,6 +56,11 @@ public class DialogManager : MonoBehaviour
     {
         inputs.Gameplay.Dialog.canceled += OnDialogChange;
     }
+    private void OnDisable()
+    {
+        inputs.Gameplay.Dialog.started -= OnDialogChange;
+
+    }
 
     void Start()
     {

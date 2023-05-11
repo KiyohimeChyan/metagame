@@ -50,6 +50,11 @@ public class NPCInteract : MonoBehaviour,IInteractable
     {
         inputs.Gameplay.Dialog.started += OnDialogChange;
     }
+    private void OnDisable()
+    {
+        inputs.Gameplay.Dialog.started -= OnDialogChange;
+
+    }
 
     void Start()
     {

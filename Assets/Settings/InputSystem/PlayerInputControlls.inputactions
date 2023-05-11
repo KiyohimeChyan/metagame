@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Setttings",
+                    "type": "Button",
+                    "id": "4b8a3e49-039a-455f-a5de-ab1272755931",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -300,6 +309,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Dialog",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "799e3836-5d9d-4185-9307-e59de60ceb68",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Setttings",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "970a4ca8-25d5-43d6-8ea8-315c2d6d8aaa",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Setttings",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

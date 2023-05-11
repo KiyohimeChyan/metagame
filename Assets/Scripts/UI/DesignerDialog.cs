@@ -47,6 +47,12 @@ public class DesignerDialog : MonoBehaviour
         playerController.isReading = true;
     }
 
+    private void OnDisable()
+    {
+        inputs.Gameplay.Dialog.started -= OnDialogChange;
+
+    }
+
     void Start()
     {
         at = "@";
