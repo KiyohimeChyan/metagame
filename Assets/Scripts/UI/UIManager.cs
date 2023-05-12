@@ -24,6 +24,7 @@ public class UIManager : MonoBehaviour
     //数据设计UI
     public GameObject gameDataPanel;
     public Button attackDataButton;
+    Button currentButton;
 
     public int testInt;
 
@@ -83,23 +84,33 @@ public class UIManager : MonoBehaviour
         attackDataButton.Select();
     }
 
-    public void OnDataSet(Slider slide)
-    {
-        slide.Select();
-    }
+    //public void OnDataSet(Slider slide)
+    //{
+    //    slide.Select();
+    //}
 
-    public void OnValueChanged()
-    {
-        Debug.Log("aaa");
-    }
+    //public void OnDataChoosed(Button button)
+    //{
+    //    inputs.Gameplay.Jump.started += OnSlideSelected;
+    //    currentButton = button;
+    //}
 
-    public void OnDoneButtonClick()
-    {
-        //TODO: 保存修改的数据=============================
-        gameDataPanel.SetActive(false);
-        gameResetPanel.SetActive(true);
-        isOpen = true;
-    }
+    //private void OnSlideSelected(InputAction.CallbackContext obj)
+    //{
+    //    currentButton.Select();
+    //    Debug.Log("back");
+    //    inputs.Gameplay.Jump.started -= OnSlideSelected;
+
+    //}
+
+
+    //public void OnDoneButtonClick()
+    //{
+    //    //TODO: 保存修改的数据=============================
+    //    gameDataPanel.SetActive(false);
+    //    gameResetPanel.SetActive(true);
+    //    isOpen = true;
+    //}
 
     private void OnSettingsPressed(InputAction.CallbackContext obj)
     {

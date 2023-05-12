@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
     //战斗相关
     private CharacterStats characterStats;
+    private PlayerStats playerStats;
     public float hurtForce;
     bool isHurt;
     bool isDead;
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour
         pc = GetComponent<PhysicsCheck>();
         coll = GetComponent<CapsuleCollider2D>();
         characterStats = GetComponent<CharacterStats>();
+        playerStats = GetComponent<PlayerStats>();
 
         originOffset = coll.offset;
         originSize = coll.size;
@@ -98,7 +100,7 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         if (!isCrouch&&!isWallJump && !isStuck)
-            rb.velocity = new Vector2(inputDirection.x * moveSpeed * Time.fixedDeltaTime, rb.velocity.y);
+            rb.velocity = new Vector2(inputDirection.x * playerStats.MoveSpeed * Time.fixedDeltaTime, rb.velocity.y);
         int faceDir = (int)transform.localScale.x;
         if (inputDirection.x > 0)
             faceDir = 1;
@@ -137,7 +139,7 @@ public class PlayerController : MonoBehaviour
         {
             if (pc.isGround)
             {
-                rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
+                rb.AddForce(transform.up * playerStats.JumpForce, ForceMode2D.Impulse);
                 //StopAllCoroutines();  //跳跃打断滑铲
                 //isSlide = false;
 
@@ -158,7 +160,7 @@ public class PlayerController : MonoBehaviour
         if (!isSlide&&pc.isGround&&characterStats.CurrentPower>=slidePowerCost&&!isReading)
         {
             isSlide = true;
-            var targetPos = new Vector3(transform.position.x + slideDistance * transform.localScale.x, transform.position.y);
+            var targetPos = new Vector3(transform.position.x + playerStats.SlideDistance * transform.localScale.x, transform.position.y);
 
             StartCoroutine(TriggerSlide(targetPos));
 

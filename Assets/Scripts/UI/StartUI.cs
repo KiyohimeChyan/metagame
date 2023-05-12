@@ -13,7 +13,7 @@ public class StartUI : MonoBehaviour
     public Transform generateTrans3;
     Transform generateTrans;
     int lastName;
-    string[] nameGroup;
+    public string[] nameGroup;
     private void Awake()
     {
         currentName = PlayerPrefs.GetString("currentName");
@@ -49,7 +49,7 @@ public class StartUI : MonoBehaviour
             text.GetComponent<TMP_Text>().text = nameGroup[i];
             if (i == lastName)
             {
-                text.GetComponent<TMP_Text>().color = Color.red;
+                text.GetComponent<TMP_Text>().color = new Color(1.0f, 0.9333333f, 0.372549f,1.0f);
             }
         }
     }

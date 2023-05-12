@@ -64,15 +64,6 @@ public partial class @PlayerInputControlls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Confirm"",
-                    ""type"": ""Button"",
-                    ""id"": ""8e44676f-2162-4172-abf0-964ca524d873"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Dialog"",
                     ""type"": ""Button"",
                     ""id"": ""58853f6c-be13-42bd-9a3d-5e4b51fcec22"",
@@ -282,33 +273,11 @@ public partial class @PlayerInputControlls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b46b1105-8734-410f-8c19-965b333e9808"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Slide"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""46d7990b-bc2c-4b6d-9e84-017488961849"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Confirm"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""af5fd74b-5c38-413c-8850-c1d482e00701"",
                     ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Confirm"",
+                    ""action"": ""Slide"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -944,7 +913,6 @@ public partial class @PlayerInputControlls: IInputActionCollection2, IDisposable
         m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
         m_Gameplay_Attack = m_Gameplay.FindAction("Attack", throwIfNotFound: true);
         m_Gameplay_Slide = m_Gameplay.FindAction("Slide", throwIfNotFound: true);
-        m_Gameplay_Confirm = m_Gameplay.FindAction("Confirm", throwIfNotFound: true);
         m_Gameplay_Dialog = m_Gameplay.FindAction("Dialog", throwIfNotFound: true);
         m_Gameplay_Setttings = m_Gameplay.FindAction("Setttings", throwIfNotFound: true);
         // UI
@@ -1024,7 +992,6 @@ public partial class @PlayerInputControlls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Jump;
     private readonly InputAction m_Gameplay_Attack;
     private readonly InputAction m_Gameplay_Slide;
-    private readonly InputAction m_Gameplay_Confirm;
     private readonly InputAction m_Gameplay_Dialog;
     private readonly InputAction m_Gameplay_Setttings;
     public struct GameplayActions
@@ -1035,7 +1002,6 @@ public partial class @PlayerInputControlls: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
         public InputAction @Attack => m_Wrapper.m_Gameplay_Attack;
         public InputAction @Slide => m_Wrapper.m_Gameplay_Slide;
-        public InputAction @Confirm => m_Wrapper.m_Gameplay_Confirm;
         public InputAction @Dialog => m_Wrapper.m_Gameplay_Dialog;
         public InputAction @Setttings => m_Wrapper.m_Gameplay_Setttings;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
@@ -1059,9 +1025,6 @@ public partial class @PlayerInputControlls: IInputActionCollection2, IDisposable
             @Slide.started += instance.OnSlide;
             @Slide.performed += instance.OnSlide;
             @Slide.canceled += instance.OnSlide;
-            @Confirm.started += instance.OnConfirm;
-            @Confirm.performed += instance.OnConfirm;
-            @Confirm.canceled += instance.OnConfirm;
             @Dialog.started += instance.OnDialog;
             @Dialog.performed += instance.OnDialog;
             @Dialog.canceled += instance.OnDialog;
@@ -1084,9 +1047,6 @@ public partial class @PlayerInputControlls: IInputActionCollection2, IDisposable
             @Slide.started -= instance.OnSlide;
             @Slide.performed -= instance.OnSlide;
             @Slide.canceled -= instance.OnSlide;
-            @Confirm.started -= instance.OnConfirm;
-            @Confirm.performed -= instance.OnConfirm;
-            @Confirm.canceled -= instance.OnConfirm;
             @Dialog.started -= instance.OnDialog;
             @Dialog.performed -= instance.OnDialog;
             @Dialog.canceled -= instance.OnDialog;
@@ -1279,7 +1239,6 @@ public partial class @PlayerInputControlls: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnSlide(InputAction.CallbackContext context);
-        void OnConfirm(InputAction.CallbackContext context);
         void OnDialog(InputAction.CallbackContext context);
         void OnSetttings(InputAction.CallbackContext context);
     }

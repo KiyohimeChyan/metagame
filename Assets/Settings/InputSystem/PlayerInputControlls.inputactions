@@ -42,15 +42,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Confirm",
-                    "type": "Button",
-                    "id": "8e44676f-2162-4172-abf0-964ca524d873",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Dialog",
                     "type": "Button",
                     "id": "58853f6c-be13-42bd-9a3d-5e4b51fcec22",
@@ -260,33 +251,11 @@
                 {
                     "name": "",
                     "id": "b46b1105-8734-410f-8c19-965b333e9808",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Slide",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "46d7990b-bc2c-4b6d-9e84-017488961849",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Confirm",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "af5fd74b-5c38-413c-8850-c1d482e00701",
                     "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Confirm",
+                    "action": "Slide",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

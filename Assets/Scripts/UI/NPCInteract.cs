@@ -149,6 +149,7 @@ public class NPCInteract : MonoBehaviour,IInteractable
     {
         if (!isDone)
         {
+            dialogIndex = 0;
             ShowNPCDialog();
         }
     }

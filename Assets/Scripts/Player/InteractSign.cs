@@ -22,7 +22,7 @@ public class InteractSign : MonoBehaviour
     private void OnEnable()
     {
         //InputSystem.onActionChange += OnActionChange;
-        inputs.Gameplay.Confirm.started += OnConfirm;
+        inputs.Gameplay.Dialog.started += OnConfirm;
     }
 
 
