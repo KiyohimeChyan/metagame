@@ -80,6 +80,24 @@ public partial class @PlayerInputControlls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Next"",
+                    ""type"": ""Button"",
+                    ""id"": ""c5c179ee-2dff-4d22-8ba2-4209f70891c7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Last"",
+                    ""type"": ""Button"",
+                    ""id"": ""36797eee-461f-4e27-bd85-20748277ca63"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -322,6 +340,50 @@ public partial class @PlayerInputControlls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Setttings"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9a9c6b17-c33c-493f-8c18-78707cef494a"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Next"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fc0905a0-a954-4158-8d97-20f6c61446e9"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Next"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""87fee64c-6b49-4873-af59-8ca55c8b0dfe"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Last"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ae1fa8bb-cc56-4d05-a74b-0a1506924b30"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Last"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -915,6 +977,8 @@ public partial class @PlayerInputControlls: IInputActionCollection2, IDisposable
         m_Gameplay_Slide = m_Gameplay.FindAction("Slide", throwIfNotFound: true);
         m_Gameplay_Dialog = m_Gameplay.FindAction("Dialog", throwIfNotFound: true);
         m_Gameplay_Setttings = m_Gameplay.FindAction("Setttings", throwIfNotFound: true);
+        m_Gameplay_Next = m_Gameplay.FindAction("Next", throwIfNotFound: true);
+        m_Gameplay_Last = m_Gameplay.FindAction("Last", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -994,6 +1058,8 @@ public partial class @PlayerInputControlls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Slide;
     private readonly InputAction m_Gameplay_Dialog;
     private readonly InputAction m_Gameplay_Setttings;
+    private readonly InputAction m_Gameplay_Next;
+    private readonly InputAction m_Gameplay_Last;
     public struct GameplayActions
     {
         private @PlayerInputControlls m_Wrapper;
@@ -1004,6 +1070,8 @@ public partial class @PlayerInputControlls: IInputActionCollection2, IDisposable
         public InputAction @Slide => m_Wrapper.m_Gameplay_Slide;
         public InputAction @Dialog => m_Wrapper.m_Gameplay_Dialog;
         public InputAction @Setttings => m_Wrapper.m_Gameplay_Setttings;
+        public InputAction @Next => m_Wrapper.m_Gameplay_Next;
+        public InputAction @Last => m_Wrapper.m_Gameplay_Last;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1031,6 +1099,12 @@ public partial class @PlayerInputControlls: IInputActionCollection2, IDisposable
             @Setttings.started += instance.OnSetttings;
             @Setttings.performed += instance.OnSetttings;
             @Setttings.canceled += instance.OnSetttings;
+            @Next.started += instance.OnNext;
+            @Next.performed += instance.OnNext;
+            @Next.canceled += instance.OnNext;
+            @Last.started += instance.OnLast;
+            @Last.performed += instance.OnLast;
+            @Last.canceled += instance.OnLast;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -1053,6 +1127,12 @@ public partial class @PlayerInputControlls: IInputActionCollection2, IDisposable
             @Setttings.started -= instance.OnSetttings;
             @Setttings.performed -= instance.OnSetttings;
             @Setttings.canceled -= instance.OnSetttings;
+            @Next.started -= instance.OnNext;
+            @Next.performed -= instance.OnNext;
+            @Next.canceled -= instance.OnNext;
+            @Last.started -= instance.OnLast;
+            @Last.performed -= instance.OnLast;
+            @Last.canceled -= instance.OnLast;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -1241,6 +1321,8 @@ public partial class @PlayerInputControlls: IInputActionCollection2, IDisposable
         void OnSlide(InputAction.CallbackContext context);
         void OnDialog(InputAction.CallbackContext context);
         void OnSetttings(InputAction.CallbackContext context);
+        void OnNext(InputAction.CallbackContext context);
+        void OnLast(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
