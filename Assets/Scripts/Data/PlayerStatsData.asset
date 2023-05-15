@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1103a9ce65f22af44bb097bddc1f5a35, type: 3}
   m_Name: PlayerStatsData
   m_EditorClassIdentifier: 
-  moveSpeed: 290
-  jumpForce: 17.5
+  moveSpeed: 300
+  jumpForce: 16.5
   slideDistance: 5
