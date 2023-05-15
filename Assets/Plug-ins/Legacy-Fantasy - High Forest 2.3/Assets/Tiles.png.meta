@@ -2390,15 +2390,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_107
+      name: Bridge_1
       rect:
         serializedVersion: 2
         x: 80
-        y: 304
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        y: 288
+        width: 48
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.56}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2411,7 +2411,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_108
+      name: Bridge_2
       rect:
         serializedVersion: 2
         x: 96
@@ -2432,7 +2432,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_109
+      name: Bridge_3
       rect:
         serializedVersion: 2
         x: 112
@@ -2831,7 +2831,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_128
+      name: Bridge_4
       rect:
         serializedVersion: 2
         x: 80
@@ -2852,7 +2852,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_129
+      name: Bridge_5
       rect:
         serializedVersion: 2
         x: 96
@@ -2873,7 +2873,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tiles_130
+      name: Bridge_6
       rect:
         serializedVersion: 2
         x: 112
@@ -9897,6 +9897,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Bridge_1: -739356671
+      Bridge_2: -1926787372
+      Bridge_3: -1818811501
+      Bridge_4: 1113529563
+      Bridge_5: -1328762849
+      Bridge_6: -1599278978
       Ground1-1: 778438696
       Ground1-10: 101370583
       Ground1-11: -1974906213
@@ -9921,9 +9927,6 @@ TextureImporter:
       Tiles_104: 1943013540
       Tiles_105: -1314646965
       Tiles_106: 1811121906
-      Tiles_107: -739356671
-      Tiles_108: -1926787372
-      Tiles_109: -1818811501
       Tiles_11: -2118215696
       Tiles_110: 490133518
       Tiles_111: 895779313
@@ -9944,10 +9947,7 @@ TextureImporter:
       Tiles_125: 1988737155
       Tiles_126: -1642653169
       Tiles_127: 2046750690
-      Tiles_128: 1113529563
-      Tiles_129: -1328762849
       Tiles_13: -695717219
-      Tiles_130: -1599278978
       Tiles_131: 1856661906
       Tiles_132: 1331244511
       Tiles_133: 1628227767
