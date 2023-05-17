@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
     public Button restartButton;
     bool isOpen;
 
+
     //数据设计UI
     public GameObject gameDataPanel;
     public Button attackDataButton;
@@ -63,6 +64,20 @@ public class UIManager : MonoBehaviour
         float persentage = (float)cs.CurrentHealth / cs.MaxHealth;
         playerStatUI.OnHealthChange(persentage);
         playerStatUI.OnPowerChange(cs);
+        if (cs.CurrentHealth <= 0)
+        {
+            StartCoroutine(ShowGameSetPanel());
+        }
+    }
+
+    IEnumerator ShowGameSetPanel()
+    {
+        yield return new WaitForSeconds(2.0f);
+        resultText.text = "You are Dead";
+        gameResetPanel.SetActive(true);
+        Debug.Log("11111");
+        restartButton.Select();
+
     }
 
     public void Restart(string sceneName)
@@ -75,6 +90,7 @@ public class UIManager : MonoBehaviour
     {
         resultText.text = "Paused";
         gameResetPanel.SetActive(true);
+        restartButton.Select();
     }
 
     public void OnDataClick()

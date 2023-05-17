@@ -13,4 +13,9 @@ public class SaveLoad : MonoBehaviour
         PlayerPrefs.Save();
         SceneManager.LoadScene("Feedback1");
     }
+
+    public void OnRestartSceneClick()
+    {
+        SceneManager.LoadScene("Prototype1");
+    }
 }

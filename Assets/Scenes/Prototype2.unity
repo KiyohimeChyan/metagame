@@ -377,8 +377,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2049b33b6f09dd34c93ca85055065dd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameResetPanel: {fileID: 0}
-  result: {fileID: 0}
+  gameResetPanel: {fileID: 1104258466}
+  result: {fileID: 236388358}
+  selectedButton: {fileID: 1296316361}
 --- !u!1 &182444371
 GameObject:
   m_ObjectHideFlags: 0
@@ -12024,7 +12025,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 1, g: 0, b: 0, a: 1}
+    m_SelectedColor: {r: 0.3507356, g: 0, b: 0.4056604, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -14647,7 +14648,7 @@ Tilemap:
       - {fileID: -563268074, guid: f6cd2e2b79c241a41b8427b77e7b43c5, type: 3}
       - {fileID: -1898897858, guid: f6cd2e2b79c241a41b8427b77e7b43c5, type: 3}
       - {fileID: 1074100848, guid: f6cd2e2b79c241a41b8427b77e7b43c5, type: 3}
-      m_AnimationSpeed: 6.0000005
+      m_AnimationSpeed: 6
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 17, y: -7, z: 0}
@@ -14702,7 +14703,7 @@ Tilemap:
       - {fileID: -23521279, guid: f6cd2e2b79c241a41b8427b77e7b43c5, type: 3}
       - {fileID: -488311042, guid: f6cd2e2b79c241a41b8427b77e7b43c5, type: 3}
       - {fileID: 2069288788, guid: f6cd2e2b79c241a41b8427b77e7b43c5, type: 3}
-      m_AnimationSpeed: 6.0000005
+      m_AnimationSpeed: 6
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 16, y: -5, z: 0}
@@ -14735,7 +14736,7 @@ Tilemap:
       - {fileID: -23521279, guid: f6cd2e2b79c241a41b8427b77e7b43c5, type: 3}
       - {fileID: -488311042, guid: f6cd2e2b79c241a41b8427b77e7b43c5, type: 3}
       - {fileID: 2069288788, guid: f6cd2e2b79c241a41b8427b77e7b43c5, type: 3}
-      m_AnimationSpeed: 6.0000005
+      m_AnimationSpeed: 6
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 16, y: -4, z: 0}
@@ -14779,7 +14780,7 @@ Tilemap:
       - {fileID: -563268074, guid: f6cd2e2b79c241a41b8427b77e7b43c5, type: 3}
       - {fileID: -1898897858, guid: f6cd2e2b79c241a41b8427b77e7b43c5, type: 3}
       - {fileID: 1074100848, guid: f6cd2e2b79c241a41b8427b77e7b43c5, type: 3}
-      m_AnimationSpeed: 6
+      m_AnimationSpeed: 6.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 17, y: -3, z: 0}
@@ -14790,7 +14791,7 @@ Tilemap:
       - {fileID: 2060028149, guid: f6cd2e2b79c241a41b8427b77e7b43c5, type: 3}
       - {fileID: -1865130276, guid: f6cd2e2b79c241a41b8427b77e7b43c5, type: 3}
       - {fileID: 2044116850, guid: f6cd2e2b79c241a41b8427b77e7b43c5, type: 3}
-      m_AnimationSpeed: 6
+      m_AnimationSpeed: 6.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 15, y: -2, z: 0}
@@ -14955,7 +14956,7 @@ Tilemap:
       - {fileID: 2060028149, guid: f6cd2e2b79c241a41b8427b77e7b43c5, type: 3}
       - {fileID: -1865130276, guid: f6cd2e2b79c241a41b8427b77e7b43c5, type: 3}
       - {fileID: 2044116850, guid: f6cd2e2b79c241a41b8427b77e7b43c5, type: 3}
-      m_AnimationSpeed: 6.0000005
+      m_AnimationSpeed: 6
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 15, y: 3, z: 0}
@@ -15586,7 +15587,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 1, g: 0, b: 0, a: 1}
+    m_SelectedColor: {r: 0.34901962, g: 0, b: 0.40392157, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1

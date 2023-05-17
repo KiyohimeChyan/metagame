@@ -161,14 +161,15 @@ public class PlayerController : MonoBehaviour
         {
             isSlide = true;
             var targetPos = new Vector3(transform.position.x + playerStats.SlideDistance * transform.localScale.x, transform.position.y);
+            var targetPos1 = new Vector3(transform.position.x - playerStats.SlideDistance * transform.localScale.x, transform.position.y);
 
-            StartCoroutine(TriggerSlide(targetPos));
+            StartCoroutine(TriggerSlide(targetPos,targetPos1));
 
             characterStats.OnSlide(slidePowerCost);
         }
     }
 
-    IEnumerator TriggerSlide(Vector3 target)
+    IEnumerator TriggerSlide(Vector3 target, Vector3 targetReverse)
     {
         do
         {
@@ -180,7 +181,8 @@ public class PlayerController : MonoBehaviour
             }
             rb.MovePosition(new Vector2(transform.position.x + transform.localScale.x * slideSpeed, transform.position.y));
 
-        } while (Mathf.Abs(transform.position.x - target.x) > 0.1f);
+
+        } while (Mathf.Abs(transform.position.x - target.x) > 0.3f&& Mathf.Abs(transform.position.x - targetReverse.x) > 0.31f);
         isSlide = false;
     }
 
@@ -243,8 +245,8 @@ public class PlayerController : MonoBehaviour
     }
     private void CheckState()
     {
-        if (isDead||isSlide)
-            gameObject.layer = LayerMask.NameToLayer("Enemy");
+        if (isDead)//slideÊÇ·ñÒªÎÞµÐ
+            gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
         else
             gameObject.layer = LayerMask.NameToLayer("Player");
 
