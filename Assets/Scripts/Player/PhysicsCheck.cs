@@ -18,6 +18,7 @@ public class PhysicsCheck : MonoBehaviour
 
     public float checkRadius;
     public LayerMask groundLayer;
+    public LayerMask wallLayer;
 
     [HideInInspector]
     public bool touchLeftWall;
@@ -54,9 +55,9 @@ public class PhysicsCheck : MonoBehaviour
         }
 
         //«ΩÃÂ≈–∂œ
-        touchLeftWall = Physics2D.OverlapCircle((Vector2)transform.position + new Vector2(leftOffset.x, leftOffset.y), checkRadius, groundLayer);
-        touchRightWall = Physics2D.OverlapCircle((Vector2)transform.position + new Vector2(rightOffset.x, rightOffset.y), checkRadius, groundLayer);
-        touchTopWall = Physics2D.OverlapCircle((Vector2)transform.position + new Vector2(topOffset.x, topOffset.y), checkRadius, groundLayer);
+        touchLeftWall = Physics2D.OverlapCircle((Vector2)transform.position + new Vector2(leftOffset.x, leftOffset.y), checkRadius, wallLayer);
+        touchRightWall = Physics2D.OverlapCircle((Vector2)transform.position + new Vector2(rightOffset.x, rightOffset.y), checkRadius, wallLayer);
+        touchTopWall = Physics2D.OverlapCircle((Vector2)transform.position + new Vector2(topOffset.x, topOffset.y), checkRadius, wallLayer);
 
         if (isPlayer)
             isWall = (touchLeftWall && playerController.inputDirection.x < 0 || touchRightWall && playerController.inputDirection.x > 0) && rbody.velocity.y < 0;
