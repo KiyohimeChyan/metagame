@@ -12,15 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b12463efd2170094d80d0fc4973055bf, type: 3}
   m_Name: BeeDefenceData
   m_EditorClassIdentifier: 
-  maxHealth: 5
-  currentHealth: 5
+  maxHealth: 2
+  currentHealth: 2
   baseDeffence: 0
   currentDeffence: 0
   invincibleTime: 0.2
   point: 0
-  currentLevel: 0
-  maxLevel: 0
-  baseEXP: 0
-  currentEXP: 0
-  levelBuff: 0
-  baseEXPBuff: 0
+  currentPower: 0
+  maxPower: 0
+  powerRecoverSpeed: 0

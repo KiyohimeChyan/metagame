@@ -74,7 +74,7 @@ public class DataSetUI : MonoBehaviour
         HPSlideBoar.value = (boarHP.maxHealth - 3.0f);
         AttackSlideBoar.value = (boarAttack.minDamage - 1.0f);
 
-        HPSlideBee.value = (beeHP.maxHealth - 3.0f);
+        HPSlideBee.value = (beeHP.maxHealth - 1.0f);
         AttackSlideBee.value = (beeAttack.minDamage - 2.0f);
 
         HPSlideSnail.value = (snailHP.maxHealth - 2.0f);
@@ -104,7 +104,7 @@ public class DataSetUI : MonoBehaviour
             HPtextBoar.text = "" + (HPSlideBoar.value + 3f);
             attackTextBoar.text = "" + (AttackSlideBoar.value + 1.0f);
 
-            HPtextBee.text = "" + (HPSlideBee.value + 3f);
+            HPtextBee.text = "" + (HPSlideBee.value + 1f);
             attackTextBee.text = "" + (AttackSlideBee.value + 2.0f);
 
             HPtextSnail.text = "" + (HPSlideSnail.value + 2f);
@@ -197,8 +197,8 @@ public class DataSetUI : MonoBehaviour
         boarAttack.minDamage = (int)(AttackSlideBoar.value + 1.0f);
         boarAttack.maxDamage = (int)(AttackSlideBoar.value + 1.0f);
 
-        beeHP.maxHealth = (int)(HPSlideBee.value + 3.0f);
-        beeHP.currentHealth = (int)(HPSlideBee.value + 3.0f);
+        beeHP.maxHealth = (int)(HPSlideBee.value + 1.0f);
+        beeHP.currentHealth = (int)(HPSlideBee.value + 1.0f);
         beeAttack.minDamage = (int)(AttackSlideBee.value + 2.0f);
         beeAttack.maxDamage = (int)(AttackSlideBee.value + 2.0f);
 

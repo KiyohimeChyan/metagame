@@ -34,7 +34,6 @@ public class PortablePlatform : MonoBehaviour
 	{
 		if (!on) { return; }
 		StartCoroutine(PlatformMove(stopPosiiton));
-		Debug.Log("111");
 	}
 
 	/// <summary>

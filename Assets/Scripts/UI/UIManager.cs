@@ -66,6 +66,7 @@ public class UIManager : MonoBehaviour
         playerStatUI.OnPowerChange(cs);
         if (cs.CurrentHealth <= 0)
         {
+            Debug.Log("111");
             StartCoroutine(ShowGameSetPanel());
         }
     }
@@ -75,7 +76,7 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         resultText.text = "You are Dead";
         gameResetPanel.SetActive(true);
-        Debug.Log("11111");
+        Debug.Log("222");
         restartButton.Select();
 
     }
