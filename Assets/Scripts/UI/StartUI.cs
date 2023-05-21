@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class StartUI : MonoBehaviour
 {
@@ -11,9 +12,11 @@ public class StartUI : MonoBehaviour
     public Transform generateTrans1;
     public Transform generateTrans2;
     public Transform generateTrans3;
+    public Button start;
     Transform generateTrans;
     int lastName;
     public string[] nameGroup;
+    int nameColor;
     private void Awake()
     {
         currentName = PlayerPrefs.GetString("currentName");
@@ -21,9 +24,11 @@ public class StartUI : MonoBehaviour
 
     private void Start()
     {
+        nameColor = PlayerPrefs.GetInt("nameColor");
         nameGroup = currentName.Split(",");
         lastName = nameGroup.Length - 1;
         InstantiateFallingText();
+        start.Select();
     }
 
     void InstantiateFallingText()
@@ -47,7 +52,7 @@ public class StartUI : MonoBehaviour
             }
             GameObject text = Instantiate(fallingText, generateTrans);
             text.GetComponent<TMP_Text>().text = nameGroup[i];
-            if (i == lastName)
+            if (i == lastName&&nameColor==1)
             {
                 text.GetComponent<TMP_Text>().color = new Color(1.0f, 0.9333333f, 0.372549f,1.0f);
             }
@@ -59,5 +64,11 @@ public class StartUI : MonoBehaviour
         SceneManager.LoadScene("Prototype1");
     }
 
+    public void OnQuitClick()
+    {
+        PlayerPrefs.SetInt("nameColor", 0);
+        PlayerPrefs.Save();
+        Application.Quit();
+    }
 
 }

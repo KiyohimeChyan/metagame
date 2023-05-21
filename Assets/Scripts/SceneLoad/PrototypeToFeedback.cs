@@ -12,7 +12,11 @@ public class PrototypeToFeedback : MonoBehaviour
     public TMP_Text result;
     public Button selectedButton;
     public TMP_Text timeCount;
+    public TMP_Text resultTime;
     float usedTime;
+    float score;
+    public float damageTaken;
+    public GameObject fullHPGroup;
 
     private void Update()
     {
@@ -23,8 +27,25 @@ public class PrototypeToFeedback : MonoBehaviour
         }
     }
 
+    public void PlayerGetHurt()
+    {
+        damageTaken++;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (isLevel3)
+        {
+            score = usedTime;
+            if (damageTaken == 0)
+            {
+                score *= 1.5f;
+                fullHPGroup.SetActive(true);
+            }
+
+            resultTime.text = "Score: " + score.ToString("f2");
+        }
+
         gameResetPanel.SetActive(true);
         selectedButton.Select();
         result.text = "You win!";

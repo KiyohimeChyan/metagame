@@ -23,6 +23,7 @@ public class GetNameUI : MonoBehaviour
             currentName = currentName + inputField.text;
             Debug.Log(currentName);
             PlayerPrefs.SetString("currentName", currentName);
+            PlayerPrefs.SetInt("nameColor", 1);
             PlayerPrefs.Save();
             SceneManager.LoadScene("AsyncScene");
         }
