@@ -108,19 +108,20 @@ public class PlayerController : MonoBehaviour
             faceDir = -1;
         transform.localScale = new Vector3(faceDir, 1, 1);
         isCrouch = inputDirection.y < -0.5f && pc.isGround;
-        if (isCrouch)
-        {
-            coll.offset = new Vector2(-0.06f, 0.6f);
-            coll.size = new Vector2(0.7f, 1.2f);
-            rb.velocity = new Vector2(0, 0);
-        }
-        else
-        {
-            coll.offset = originOffset;
-            coll.size = originSize;
-        }
+        //if (isCrouch)
+        //{
+        //    Debug.Log("iscrouch");
+        //    coll.offset = new Vector2(-0.06f, 0.4f);
+        //    coll.size = new Vector2(0.7f, 0.8f);
+        //    rb.velocity = new Vector2(0, 0);
+        //}
+        //else
+        //{
+        //    coll.offset = originOffset;
+        //    coll.size = originSize;
+        //}
 
-        if (isSlide)
+        if (isSlide||isCrouch)
         {
             coll.offset = new Vector2(-0.06f, 0.4f);
             coll.size = new Vector2(0.7f, 0.8f);
