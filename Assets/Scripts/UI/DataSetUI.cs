@@ -83,7 +83,7 @@ public class DataSetUI : MonoBehaviour
         HPSlidePlayer.value = (playerHP.maxHealth - 5.0f);
         AttackSlidePlayer.value = (playerAttack.minDamage - 1.0f);
         SpeedSlide.value = (playerBasic.moveSpeed - 300.0f) / 50.0f;
-        JumpForceSlide.value = (playerBasic.jumpForce - 16.5f) / 0.5f;
+        JumpForceSlide.value = (playerBasic.jumpForce - 17.5f) / 0.5f;
         SlideDistanceSlider.value = (playerBasic.slideDistance - 5.0f);
 
         isPlayerOpen = false;
@@ -116,7 +116,7 @@ public class DataSetUI : MonoBehaviour
             HPtextPlayer.text = "" + (HPSlidePlayer.value + 5f);
             attackTextPlayer.text = "" + (AttackSlidePlayer.value+1.0f);
             speedTextPlayer.text = "" + (SpeedSlide.value * 50.0f + 300.0f);
-            jumpTextPlayer.text = "" + (JumpForceSlide.value * 0.5f + 16.5f);
+            jumpTextPlayer.text = "" + (JumpForceSlide.value * 0.5f + 17.5f);
             slideTextPlayer.text = "" + (SlideDistanceSlider.value + 5.0f);
         }
     }
@@ -211,7 +211,7 @@ public class DataSetUI : MonoBehaviour
     private void SavePlayerData()
     {
         playerBasic.moveSpeed = SpeedSlide.value * 50.0f + 300.0f;
-        playerBasic.jumpForce = JumpForceSlide.value * 0.5f + 16.5f;
+        playerBasic.jumpForce = JumpForceSlide.value * 0.5f + 17.5f;
         playerBasic.slideDistance = SlideDistanceSlider.value + 5.0f;
         playerHP.maxHealth = (int)(HPSlidePlayer.value + 5f);
         playerHP.currentHealth = (int)(HPSlidePlayer.value + 5f);

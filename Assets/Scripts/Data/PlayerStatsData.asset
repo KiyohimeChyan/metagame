@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PlayerStatsData
   m_EditorClassIdentifier: 
   moveSpeed: 300
-  jumpForce: 16.5
+  jumpForce: 17.5
   slideDistance: 5
