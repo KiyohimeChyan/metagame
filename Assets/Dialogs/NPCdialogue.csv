@@ -1,0 +1,12 @@
+Tag,ID,Content,Jump,Effect,Image,Name
+#,0,Welcome@ young adventurer. I am Eros@ the guardian of this forest. I see you are from the human world@ and you are confused by the changes in the forest?,1,,1,Eros
+#,1,Yes@ Eros@ I am from the human world. This forest was once where my family lived@ but now it has become treacherous and dangerous. I don't know what has happened@ can you tell me what has happened?,2,,0,Edric
+#,2,This forest was once harmonious and beautiful@ where we lived with the spirits of nature@ guarding treasures and secrets.,3,,1,Eros
+#,3,Recently@ an evil force has invaded the land@ bringing with it dangerous creatures such as thorns@ wild boars and snails and bees. They seek to control the power of the forest and destroy its balance.,4,,1,Eros
+#,4,The forces of evil? Why are they doing this? I must stop them and protect the forest!,5,,0,Edric
+#,5,Exactly@ young adventurer. The sword you carry is a treasure of your family@ and it gives you special powers and a mission. ,6,,1,Eros
+#,6,You need to restore peace to the forest and find the lost spirits of nature and the treasures that guard it. Only your courage and wisdom can overcome the forces of evil.,7,,1,Eros
+#,7,I am willing to undertake this mission to restore harmony to the forest. Tell me@ please@ where should I begin?,8,,0,Edric
+#,8,First of all@ you need to learn to avoid the thorns in the forest@ which can cause you harm. You also need to watch out for boar attacks and the poisonous stings of bees.,9,,1,Eros
+#,9,I will try to learn and protect the forest and become its guardian. Thank you for your guidance@ Eros!,10,,0,Edric
+END,10,,,,,
