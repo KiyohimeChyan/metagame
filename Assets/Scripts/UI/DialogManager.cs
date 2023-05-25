@@ -13,6 +13,9 @@ public class DialogManager : MonoBehaviour
     public GameObject getNameUI;
     public PlayerInputControlls inputs;
 
+    public GameObject scene1;
+    public GameObject scene2;
+
     //Êý¾Ý¶ÁÈ¡
     private int currentScene;
     public TextAsset dialogDataFile2;
@@ -68,12 +71,15 @@ public class DialogManager : MonoBehaviour
         comma = ",";
         if(currentScene == 2)
         {
+            scene1.SetActive(true);
             ReadText(dialogDataFile2);
         }else if(currentScene == 3)
         {
+            scene2.SetActive(true);
             ReadText(dialogDataFile3);
         }else if(currentScene == 4)
         {
+            scene2.SetActive(true);
             ReadText(dialogDataFile4);
         }
         ShowDialog();
@@ -181,15 +187,27 @@ public class DialogManager : MonoBehaviour
 
     public void OptionEffect(string effect)
     {
-        //if (effect == "M1")
-        //{
-        //    currentDistance = Mathf.Max(currentDistance - 1, 0);
-        //}
-        //if (effect == "P1")
-        //{
-        //    currentDistance += 1;
-        //}
-
+        if (effect == "Forest")
+        {
+            PlayerPrefs.SetInt("BackgroundStyle", 0);
+        }
+        if (effect == "Cave")
+        {
+            PlayerPrefs.SetInt("BackgroundStyle", 1);
+        }
+        if (effect == "Red")
+        {
+            PlayerPrefs.SetInt("HPColor", 0);
+        }
+        if (effect == "Green")
+        {
+            PlayerPrefs.SetInt("HPColor", 1);
+        }
+        if (effect == "Blue")
+        {
+            PlayerPrefs.SetInt("HPColor", 2);
+        }
+        PlayerPrefs.Save();
     }
 
     public void OnClickNext()

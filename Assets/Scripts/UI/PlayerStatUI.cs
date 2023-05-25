@@ -9,9 +9,39 @@ public class PlayerStatUI : MonoBehaviour
     public Image healthDelayBar;
     public Image energyBar;
     public bool isLevel2;
+    public GameObject levelBG;
+    public Sprite blue;
+    public Sprite red;
+    public Sprite green;
 
     bool isRecover;
     CharacterStats characterStats;
+
+    private void Awake()
+    {
+        int num = PlayerPrefs.GetInt("HPColor");
+        if (num == 0)
+        {
+            healthBar.sprite = red;
+        }else if (num == 1)
+        {
+            healthBar.sprite = green;
+        }
+        else
+        {
+            healthBar.sprite = blue;
+        }
+        if (isLevel2)
+        {
+            int bg = PlayerPrefs.GetInt("BackgroundStyle");
+            Debug.Log(bg);
+            if (bg == 1)
+            {
+                levelBG.SetActive(false);
+            }
+        }
+        healthBar.type = Image.Type.Filled;
+    }
     private void Update()
     {
         if (!isLevel2)

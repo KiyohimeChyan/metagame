@@ -1,0 +1,31 @@
+Tag,ID,Content,Jump,Effect,Image
+#,0,Thank you very much for taking part in our playtest@  what you have just experienced is our further improved game model.,1,,0
+#,1,Based on your experience@  we would like your feedback and suggestions for further iterations of the game.,2,,0
+#,2,Do you like our value adjustment system?,3,,0
+&,3,Like,6,,
+&,4,Don't like,6,,
+&,5,Don't care,6,,
+#,6,Do you think our levels are well designed?,7,,0
+&,7,Yes,9,,
+&,8,No,9,,
+#,9,Whether the size of the character in the game screen is appropriate?,10,,0
+&,10,Broken platforms,13,,
+&,11,Moveable platforms,13,,
+&,12,Normal platforms,13,,
+#,13,Is the character the right size for the game screen?,14,,0
+&,14,Too big,17,,
+&,15,Too small,17,,
+&,16,Right size,17,,
+#,17,Did you enjoy the plot of our story?,18,,0
+&,18,Like,21,,
+&,19,Don't like,21,,
+&,20,Not paying attention,21,,
+#,21,Do you want your character to have more skills?,22,,0
+&,22,Yes,25,,
+&,23,No,25,,
+&,24,Don't need to change,25,,
+#,25,Where would you most prefer the next scene of the game to take place?,26,,0
+&,26,Snow-capped mountains,29,,
+&,27,Sunny beaches,29,,
+&,28,A vibrant underwater,29,,
+END,29,,,,

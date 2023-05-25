@@ -61,6 +61,8 @@ public class StartUI : MonoBehaviour
 
     public void OnStartClick()
     {
+        PlayerPrefs.SetInt("isDialog", 0);
+        PlayerPrefs.Save();
         SceneManager.LoadScene("Prototype1");
     }
 

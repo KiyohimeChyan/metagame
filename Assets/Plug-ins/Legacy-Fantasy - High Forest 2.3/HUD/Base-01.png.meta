@@ -287,7 +287,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base-01_8
+      name: HealthBlue
       rect:
         serializedVersion: 2
         x: 308
@@ -1919,13 +1919,13 @@ TextureImporter:
       Base-01_77: 1625140954
       Base-01_78: -1773770394
       Base-01_79: 489041720
-      Base-01_8: 1232821563
       Base-01_80: 1834362249
       Base-01_9: -1034132421
       EnergyBar: 1094729093
       EnergyBarHolder: 1360416772
       HealthBG: 2078423758
       HealthBarHolder: 1876284288
+      HealthBlue: 1232821563
       HealthCurrent: 1676033402
       Key_1: -354964116
       Key_2: 938448512

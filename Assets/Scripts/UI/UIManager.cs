@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     //事件监听
     public CharacterEventSO characterEventSO;
     public GameObject designerDialogGroup;
+    public bool isPaused;
 
     //游戏结束UI
     public GameObject gameResetPanel;
@@ -131,7 +132,15 @@ public class UIManager : MonoBehaviour
 
     private void OnSettingsPressed(InputAction.CallbackContext obj)
     {
-        resultText.text = "Paused";
+        if (isPaused)
+        {
+            resultText.text = "Time Still Running!";
+        }
+        else
+        {
+            resultText.text = "Paused";
+
+        }
         gameResetPanel.SetActive(!isOpen);
         isOpen = !isOpen;
         restartButton.Select();

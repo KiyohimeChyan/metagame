@@ -67,6 +67,7 @@ public class DataSetUI : MonoBehaviour
     {
         inputs = new PlayerInputControlls();
         inputs.Enable();
+        playerGroup.SetActive(false);
 
         inputs.Gameplay.Next.started += OnRBClick;
         inputs.Gameplay.Last.started += OnLBClick;

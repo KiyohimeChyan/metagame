@@ -1,0 +1,31 @@
+Tag,ID,Content,Jump,Effect,Image
+#,0,Thank you for participating in our playtest. What you have just experienced is our improved game prototype. Based on your experience@ we would like to get your feedback and suggestions for the game.,1,,0
+#,1,What are you most looking forward to when you enter the game?,2,,0
+&,2,Intriguing game plot,5,,
+&,3,Beautiful graphics,5,,
+&,4,Interesting gameplay,5,,
+#,5,What is the one skill you do not want your game character to have?,6,,0
+&,6,Flying,9,,
+&,7,Double jump,9,,
+&,8,Long range attack,9,,
+#,9,What skills do you prefer game characters to have?,10,,0
+&,10,Sliding,13,,
+&,11,Climbing the wall,13,,
+&,12,Squatting,13,,
+#,13,What is your favourite presentation of tutorial?,14,,0
+&,14,Conversations,17,,
+&,15,Pictures,17,,
+&,16,Integration into game levels,17,,
+#,17,Do you feel that the characters are too large in proportion to the game screen?,18,,0
+&,18,Too large a proportion,21,,
+&,19,Just the right proportion,21,,
+&,20,Too small a proportion,21,,
+#,21,Do you wish you could change the values of the monsters in the game?,22,,0
+&,22,Yes,25,,
+&,23,No,25,,
+&,24,Don't care,25,,
+#,25,If you could change the values@ which values of the monster would you like to be able to change?,26,,0
+&,26,Movement speed,29,,
+&,27,Attack power,29,,
+&,28,Life Value,29,,
+END,29,,,,

@@ -1,0 +1,11 @@
+Tag,ID,Content,Jump,Effect,Image,Name
+#,0,Hello@ thank you very much for taking part in our third beta test.,1,,0,Designer
+#,1,We have received a great deal of feedback after the last beta@ which has inspired us to keep improving the game's content.,2,,0,Designer
+#,2,This time we have added a new function@ you can access the settings menu with start button on gamepad. ,3,,0,Designer
+#,3,In the settings menu you can adjust the values of your character and enemies. This feature may help you to get through the game faster.,4,,0,Designer
+#,4,We have also added a timer function so that when our dialogue is over@ the game will start counting from the moment you pass the yellow marker. ,5,,0,Designer
+#,5,The time it takes you to pass the game will also be included as one of the criteria we use to measure the difficulty of the game.,6,,0,Designer
+#,6,Our third game model adds more level design@ including rich terrain@ movable platforms and more. ,7,,0,Designer
+#,7,For this test we will focus on testing the game's level design to see if it makes sense.,8,,0,Designer
+#,8,This is what we have in the game so far. Please enjoy the game and we look forward to your feedback on the game.,9,,0,Designer
+END,9,,,,,

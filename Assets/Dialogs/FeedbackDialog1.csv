@@ -1,0 +1,26 @@
+Tag,ID,Content,Jump,Effect,Image
+#,0,Thank you very much for participating in our playtest@ what you have just experienced is an early model of our game. Based on the gameplay experience@ we would like your feedback and suggestions for the game.,1,,0
+#,1,Which of the following side-scrolling games have you played?,2,,0
+&,2,Celeste,5,,
+&,3,Cuphead,5,,
+&,4,Never played a platform game,5,,
+#,5,Is our game interface too minimalist? Hahaha not only you but we all think so too@ We would like to improve our graphics@ which part would you like to improve the most.,6,,0
+&,6,Specific images of the game's protagonists and enemies,9,,
+&,7,Richer game maps,9,,
+&,8,Add backgrounds,9,,
+#,9,All the suggestions just made are very valuable and we will improve the graphics of the game.We would like to visualise the life value of the character@ what colour would you prefer to use to represent the life value.,10,,0
+&,10,Red,13,Red,
+&,11,Green,13,Green,
+&,12,Blue,13,Blue,
+#,13,What's your preference for side-scolling game,14,,0
+&,14,Platform genre,17,,
+&,15,Beat'em up genre,17,,
+&,16,Shooter genre,17,,
+#,17,Where do you want the game to take place?,18,,0
+&,18,Deep in the vibrant forest,20,Forest,
+&,19,Hidden and dark underground caves,20,Cave,
+#,20,What image of the monster are you afraid of?,21,,0
+&,21,Snake,24,,
+&,22,Tiger,24,,
+&,23,Mouse,24,,
+END,24,,,,

@@ -16,6 +16,8 @@ public class SaveLoad : MonoBehaviour
 
     public void OnRestartSceneClick()
     {
+        PlayerPrefs.SetInt("isDialog", 1);
+        PlayerPrefs.Save();
         SceneManager.LoadScene("Prototype1");
     }
 }
