@@ -189,23 +189,47 @@ public class DialogManager : MonoBehaviour
     {
         if (effect == "Forest")
         {
-            PlayerPrefs.SetInt("BackgroundStyle", 0);
+            PlayerPrefs.SetString("BackgroundStyle", "Add Forest Background");
         }
         if (effect == "Cave")
         {
-            PlayerPrefs.SetInt("BackgroundStyle", 1);
+            PlayerPrefs.SetString("BackgroundStyle", "Add Cave Background");
         }
         if (effect == "Red")
         {
-            PlayerPrefs.SetInt("HPColor", 0);
+            PlayerPrefs.SetString("HPColor", "Red HP Bar");
         }
         if (effect == "Green")
         {
-            PlayerPrefs.SetInt("HPColor", 1);
+            PlayerPrefs.SetString("HPColor", "Green HP Bar");
         }
         if (effect == "Blue")
         {
-            PlayerPrefs.SetInt("HPColor", 2);
+            PlayerPrefs.SetString("HPColor", "Blue HP Bar");
+        }
+        if (effect == "Animation")
+        {
+            PlayerPrefs.SetString("Visual", "Add Coherent Animation");
+        }
+        if(effect == "Image")
+        {
+            PlayerPrefs.SetString("Visual", "Add Wonderful Image");
+        }
+        if (effect == "Map")
+        {
+            PlayerPrefs.SetString("Visual", "Add Interesting Map");
+        }
+        if (effect == "Graphic")
+        {
+            PlayerPrefs.SetString("V2", "Add Beautiful Graphics");
+        }
+        if (effect == "Gameplay")
+        {
+            PlayerPrefs.SetString("V2", "Add Unique Gameplay");
+        }
+        if (effect == "Plot")
+        {
+            PlayerPrefs.SetString("V2", "Add Interesting Plot");
         }
         PlayerPrefs.Save();
     }

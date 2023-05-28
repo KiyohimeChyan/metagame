@@ -19,11 +19,11 @@ public class PlayerStatUI : MonoBehaviour
 
     private void Awake()
     {
-        int num = PlayerPrefs.GetInt("HPColor");
-        if (num == 0)
+        string num = PlayerPrefs.GetString("HPColor");
+        if (num == "Red HP Bar")
         {
             healthBar.sprite = red;
-        }else if (num == 1)
+        }else if (num == "Green HP Bar")
         {
             healthBar.sprite = green;
         }
@@ -33,9 +33,9 @@ public class PlayerStatUI : MonoBehaviour
         }
         if (isLevel2)
         {
-            int bg = PlayerPrefs.GetInt("BackgroundStyle");
+            string bg = PlayerPrefs.GetString("BackgroundStyle");
             Debug.Log(bg);
-            if (bg == 1)
+            if (bg == "Add Cave Background")
             {
                 levelBG.SetActive(false);
             }

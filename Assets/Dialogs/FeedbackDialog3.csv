@@ -8,7 +8,7 @@ Tag,ID,Content,Jump,Effect,Image
 #,6,Do you think our levels are well designed?,7,,0
 &,7,Yes,9,,
 &,8,No,9,,
-#,9,Whether the size of the character in the game screen is appropriate?,10,,0
+#,9,Which of the following 3 types of platforms would you like to see more of in the game? ,10,,0
 &,10,Broken platforms,13,,
 &,11,Moveable platforms,13,,
 &,12,Normal platforms,13,,

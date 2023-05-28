@@ -63,10 +63,39 @@ public class DataSetUI : MonoBehaviour
     public TMP_Text HPtextSnail;
     public TMP_Text attackTextSnail;
 
+    bool isCheat;
+    int currentMode;
+    public Button cheatMode;
+    public Sprite cheatOn;
+    public Sprite cheatOnS;
+    public Sprite cheatOff;
+    public Sprite cheatOffS;
+    SpriteState spriteState;
+
     private void OnEnable()
     {
         inputs = new PlayerInputControlls();
         inputs.Enable();
+        spriteState = new SpriteState();
+        spriteState = cheatMode.spriteState;
+        if (isCheat)
+        {
+            spriteState.selectedSprite = cheatOnS;
+        }
+        else
+        {
+            spriteState.selectedSprite = cheatOffS;
+        }
+        cheatMode.spriteState = spriteState;
+        currentMode = PlayerPrefs.GetInt("isCheat");
+        if (currentMode == 1)
+        {
+            isCheat = true;
+        }
+        else
+        {
+            isCheat = false;
+        }
         playerGroup.SetActive(false);
 
         inputs.Gameplay.Next.started += OnRBClick;
@@ -112,7 +141,7 @@ public class DataSetUI : MonoBehaviour
             attackTextSnail.text = "" + (AttackSlideSnail.value);
         }
 
-        if (isPlayerOpen)
+        if (isPlayerOpen&&!isCheat)
         {
             HPtextPlayer.text = "" + (HPSlidePlayer.value + 5f);
             attackTextPlayer.text = "" + (AttackSlidePlayer.value+1.0f);
@@ -181,10 +210,15 @@ public class DataSetUI : MonoBehaviour
     }
 
 
+
+
     public void OnDoneButtonClick()
     {
-        SaveEnemyData();
-        SavePlayerData();
+        if (!isCheat)
+        {
+            SaveEnemyData();
+            SavePlayerData();
+        }
         //TODO: 保存修改的数据=============================
         gameDataPanel.SetActive(false);
         gameResetPanel.SetActive(true);
@@ -207,6 +241,43 @@ public class DataSetUI : MonoBehaviour
         snailHP.currentHealth = (int)(HPSlideSnail.value + 2.0f);
         snailAttack.minDamage = (int)(AttackSlideSnail.value);
         snailAttack.maxDamage = (int)(AttackSlideSnail.value);
+    }
+
+    public void OnCheatModeOn()
+    {
+        isCheat = !isCheat;
+        spriteState = cheatMode.spriteState;
+        if (isCheat)
+        {
+            PlayerPrefs.SetInt("isCheat", 1);
+            cheatMode.GetComponent<Image>().sprite = cheatOn;
+            spriteState.selectedSprite = cheatOnS;
+        }
+        else
+        {
+            PlayerPrefs.SetInt("isCheat", 0);
+            cheatMode.GetComponent<Image>().sprite = cheatOff;
+            spriteState.selectedSprite = cheatOffS;
+        }
+        cheatMode.spriteState = spriteState;
+        PlayerPrefs.Save();
+        speedTextPlayer.text = "1500";
+        attackTextPlayer.text = "100";
+        HPtextPlayer.text = "100";
+        jumpTextPlayer.text = "50";
+        slideTextPlayer.text = "25" ;
+        playerBasic.moveSpeed = 1500.0f;
+        playerBasic.jumpForce = 50.0f;
+        playerBasic.slideDistance = 25.0f;
+        playerHP.maxHealth = 100;
+        playerHP.currentHealth = 100;
+        playerAttack.minDamage = 100;
+        playerAttack.maxDamage = 100;
+        HPSlidePlayer.value = 100;
+        AttackSlidePlayer.value = 100;
+        SlideDistanceSlider.value = 100;
+        JumpForceSlide.value = 100;
+        SpeedSlide.value = 100;
     }
 
     private void SavePlayerData()

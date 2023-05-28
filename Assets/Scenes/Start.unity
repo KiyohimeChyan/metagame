@@ -1444,7 +1444,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: META GAME
+  m_text: Pixel Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a51e2cd17a01c8f4bacd2ce276c60099, type: 2}
   m_sharedMaterial: {fileID: -8898458710992749178, guid: a51e2cd17a01c8f4bacd2ce276c60099, type: 2}
@@ -1471,8 +1471,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 280
-  m_fontSizeBase: 280
+  m_fontSize: 250
+  m_fontSizeBase: 250
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 36

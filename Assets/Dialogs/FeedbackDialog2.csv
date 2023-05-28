@@ -1,17 +1,17 @@
 Tag,ID,Content,Jump,Effect,Image
 #,0,Thank you for participating in our playtest. What you have just experienced is our improved game prototype. Based on your experience@ we would like to get your feedback and suggestions for the game.,1,,0
 #,1,What are you most looking forward to when you enter the game?,2,,0
-&,2,Intriguing game plot,5,,
-&,3,Beautiful graphics,5,,
-&,4,Interesting gameplay,5,,
-#,5,What is the one skill you do not want your game character to have?,6,,0
+&,2,Intriguing game plot,5,Plot,
+&,3,Beautiful graphics,5,Graphic,
+&,4,Interesting gameplay,5,Gameplay,
+#,5,What is the one skill you DO NOT want your game character to have?,6,,0
 &,6,Flying,9,,
 &,7,Double jump,9,,
 &,8,Long range attack,9,,
 #,9,What skills do you prefer game characters to have?,10,,0
 &,10,Sliding,13,,
 &,11,Climbing the wall,13,,
-&,12,Squatting,13,,
+&,12,Crouching,13,,
 #,13,What is your favourite presentation of tutorial?,14,,0
 &,14,Conversations,17,,
 &,15,Pictures,17,,
