@@ -8,6 +8,7 @@ using TMPro;
 public class AsyncSceneLoad : MonoBehaviour
 {
     private AsyncOperation async = null;
+    public GameObject feedback;
     int currentScene;
     string sceneName;
 
@@ -32,6 +33,7 @@ public class AsyncSceneLoad : MonoBehaviour
         }else if(currentScene == 4)
         {
             sceneName = "Start";
+            feedback.SetActive(false);
         }
     }
 

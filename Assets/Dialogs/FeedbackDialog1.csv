@@ -3,7 +3,7 @@ Tag,ID,Content,Jump,Effect,Image
 #,1,Which of the following side-scrolling games is your favorite?,2,,0
 &,2,Celeste,5,,
 &,3,Cuphead,5,,
-&,4,Never played a platform game,5,,
+&,4,Hollow Knight,5,,
 #,5,What's your preference for side-scolling game,6,,0
 &,6,Platform genre,9,,
 &,7,Beat'em up genre,9,,
@@ -19,7 +19,7 @@ Tag,ID,Content,Jump,Effect,Image
 #,17,All the suggestions just made are very valuable and we will improve the graphics of the game. Where do you want the game to take place?,18,,0
 &,18,Deep in the vibrant forest,20,Forest,
 &,19,Hidden and dark underground caves,20,Cave,
-#,20,What image of the monster are you afraid of?,21,,0
+#,20,What type of the monster are you afraid of?,21,,0
 &,21,Snake,24,,
 &,22,Tiger,24,,
 &,23,Mouse,24,,
