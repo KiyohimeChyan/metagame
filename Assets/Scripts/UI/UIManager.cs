@@ -19,7 +19,9 @@ public class UIManager : MonoBehaviour
     public GameObject gameResetPanel;
     public PlayerInputControlls inputs;
     public TMP_Text resultText;
+    public TMP_Text dataText;
     public Button restartButton;
+    public GameObject secondButton;
     bool isOpen;
 
 
@@ -67,7 +69,6 @@ public class UIManager : MonoBehaviour
         playerStatUI.OnPowerChange(cs);
         if (cs.CurrentHealth <= 0)
         {
-            Debug.Log("111");
             StartCoroutine(ShowGameSetPanel());
         }
     }
@@ -76,8 +77,18 @@ public class UIManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2.0f);
         resultText.text = "You are Dead";
+        if (PlayerPrefs.GetInt("FirstData") == 0)
+        {
+            PlayerPrefs.SetInt("FirstData", 1);
+            PlayerPrefs.Save();
+            dataText.text = "Game too hard? Don't worry, try to adjust the character values!";
+        }
+        else
+        {
+            dataText.text = "";
+            secondButton.SetActive(true);
+        }
         gameResetPanel.SetActive(true);
-        Debug.Log("222");
         restartButton.Select();
 
     }

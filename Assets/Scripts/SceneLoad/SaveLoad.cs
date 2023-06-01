@@ -10,6 +10,7 @@ public class SaveLoad : MonoBehaviour
     {
         PlayerPrefs.SetInt("currentScene", currentScene);
         PlayerPrefs.SetInt("isDialog", 0);
+        PlayerPrefs.SetInt("FirstData", 0);
         PlayerPrefs.Save();
         SceneManager.LoadScene("Feedback1");
     }

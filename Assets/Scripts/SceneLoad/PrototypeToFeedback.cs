@@ -5,14 +5,17 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
 
+
 public class PrototypeToFeedback : MonoBehaviour
 {
     public bool isLevel3;
     public GameObject gameResetPanel;
     public TMP_Text result;
     public Button selectedButton;
+    public GameObject secondButton;
     public TMP_Text timeCount;
     public TMP_Text resultTime;
+    public TMP_Text dataText;
     float usedTime;
     float score;
     public float damageTaken;
@@ -39,15 +42,27 @@ public class PrototypeToFeedback : MonoBehaviour
             score = usedTime;
             if (damageTaken == 0)
             {
-                score *= 1.5f;
+                score /= 2.0f;
                 fullHPGroup.SetActive(true);
             }
 
             resultTime.text = "Score: " + score.ToString("f2");
         }
+        if (PlayerPrefs.GetInt("FirstData")==0)
+        {
+            PlayerPrefs.SetInt("FirstData", 1);
+            PlayerPrefs.Save();
+            dataText.text = "Excellent! Can you help us adjust the values to your personal preference?";
+        }
+        else
+        {
+            dataText.text = "";
+            secondButton.SetActive(true);
+        }
 
         gameResetPanel.SetActive(true);
         selectedButton.Select();
         result.text = "You win!";
+        Destroy(this.gameObject);
     }
 }
