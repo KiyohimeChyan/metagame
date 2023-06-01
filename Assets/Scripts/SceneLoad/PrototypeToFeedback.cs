@@ -47,19 +47,18 @@ public class PrototypeToFeedback : MonoBehaviour
             }
 
             resultTime.text = "Score: " + score.ToString("f2");
+            if (PlayerPrefs.GetInt("FirstData") == 0)
+            {
+                PlayerPrefs.SetInt("FirstData", 1);
+                PlayerPrefs.Save();
+                dataText.text = "Excellent! Can you help us adjust the values to your personal preference?";
+            }
+            else
+            {
+                dataText.text = "";
+                secondButton.SetActive(true);
+            }
         }
-        if (PlayerPrefs.GetInt("FirstData")==0)
-        {
-            PlayerPrefs.SetInt("FirstData", 1);
-            PlayerPrefs.Save();
-            dataText.text = "Excellent! Can you help us adjust the values to your personal preference?";
-        }
-        else
-        {
-            dataText.text = "";
-            secondButton.SetActive(true);
-        }
-
         gameResetPanel.SetActive(true);
         selectedButton.Select();
         result.text = "You win!";

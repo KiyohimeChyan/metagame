@@ -663,7 +663,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 517758472}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -1368,8 +1368,6 @@ RectTransform:
   - {fileID: 1582904676}
   - {fileID: 80475350}
   - {fileID: 1742561125}
-  - {fileID: 517758473}
-  - {fileID: 2102972932}
   - {fileID: 574294400}
   - {fileID: 968754495}
   - {fileID: 2078997368}
@@ -1377,6 +1375,8 @@ RectTransform:
   - {fileID: 983564387}
   - {fileID: 1764973129}
   - {fileID: 1676845209}
+  - {fileID: 517758473}
+  - {fileID: 2102972932}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2244,7 +2244,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2102972931}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
