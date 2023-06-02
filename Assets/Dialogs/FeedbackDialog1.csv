@@ -17,10 +17,10 @@ Tag,ID,Content,Jump,Effect,Image
 &,15,Richer game maps,17,Map,
 &,16,Coherent character animations,17,Animation,
 #,17,All the suggestions just made are very valuable and we will improve the graphics of the game. Where do you want the game to take place?,18,,0
-&,18,Deep in the vibrant forest,20,Forest,
-&,19,Hidden and dark underground caves,20,Cave,
+&,18,Sunny day,20,Forest,
+&,19,Dark night,20,Cave,
 #,20,What type of the monster are you afraid of?,21,,0
-&,21,Snake,24,,
-&,22,Tiger,24,,
-&,23,Mouse,24,,
+&,21,Reptiles,24,,
+&,22,Arthropods,24,,
+&,23,Giant mammals,24,,
 END,24,,,,

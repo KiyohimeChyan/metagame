@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     public CharacterEventSO characterEventSO;
     public GameObject designerDialogGroup;
     public bool isPaused;
+    public bool isLevel3;
 
     //”Œœ∑Ω· ¯UI
     public GameObject gameResetPanel;
@@ -77,16 +78,19 @@ public class UIManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2.0f);
         resultText.text = "You are Dead";
-        if (PlayerPrefs.GetInt("FirstData") == 0)
+        if (isLevel3)
         {
-            PlayerPrefs.SetInt("FirstData", 1);
-            PlayerPrefs.Save();
-            dataText.text = "Game too hard? Don't worry, try to adjust the character values!";
-        }
-        else
-        {
-            dataText.text = "";
-            secondButton.SetActive(true);
+            if (PlayerPrefs.GetInt("FirstData") == 0)
+            {
+                PlayerPrefs.SetInt("FirstData", 1);
+                PlayerPrefs.Save();
+                dataText.text = "Game too hard? Don't worry, try to adjust the character values!";
+            }
+            else
+            {
+                dataText.text = "";
+                secondButton.SetActive(true);
+            }
         }
         gameResetPanel.SetActive(true);
         restartButton.Select();
