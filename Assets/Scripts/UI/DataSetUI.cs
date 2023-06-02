@@ -70,6 +70,8 @@ public class DataSetUI : MonoBehaviour
     public Sprite cheatOnS;
     public Sprite cheatOff;
     public Sprite cheatOffS;
+    public Sprite buttonSelect;
+    public Sprite buttonOrigin;
     SpriteState spriteState;
 
     private void OnEnable()
@@ -199,11 +201,14 @@ public class DataSetUI : MonoBehaviour
     {
         inputs.Gameplay.Jump.started += OnSlideSelected;
         currentButton = button;
+        currentButton.GetComponent<Image>().sprite = buttonSelect;
     }
 
     private void OnSlideSelected(InputAction.CallbackContext obj)
     {
         currentButton.Select();
+        currentButton.GetComponent<Image>().sprite = buttonOrigin;
+
         Debug.Log("back");
         inputs.Gameplay.Jump.started -= OnSlideSelected;
 
